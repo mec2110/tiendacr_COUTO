@@ -1,0 +1,26 @@
+.NavContainer {
+    margin:0;
+    padding:0;
+    overflow: hidden;
+    background-color: #fff;
+    width: 100%;
+    position: relative;
+    top: 0;
+    height: 50px;
+    display: flex;
+    align-items: center;
+
+}
+
+.list { 
+    display:block;
+    color:#ccc;
+    text-align: center;
+    padding: 10px 15px;
+    font-size: 15px;
+  text-decoration: none;
+}
+
+.list:hover { 
+    color:rgb(39, 187, 192);
+ }
