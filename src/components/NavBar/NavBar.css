@@ -24,3 +24,7 @@
 .list:hover { 
     color:rgb(39, 187, 192);
  }
+
+ .bg-dark { 
+  color:rgb(39, 187, 192)!important;
+}

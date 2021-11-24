@@ -23,7 +23,7 @@ const NavBar = () => {
     </li>
    </ul>
  </div>
- <div>  <i class="fas fa-shopping-cart"></i><CartWidget/> </div>  
+ <div>  <CartWidget/> </div>  
 </div>
 </nav>
     
