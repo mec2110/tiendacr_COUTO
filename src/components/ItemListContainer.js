@@ -1,13 +1,16 @@
-const ItemListContainer =({greeting})=>
+import React from "react";
+import ItemCount from "./ItemCount";
+
+const ItemListContainer =()=>
 {
-  const style = {
-    color : "aquamarine",
-    padding: 15,
-    fontSize: 30,
+  const onAdd = () => {
+    console.log ("Agregado al carrito")
+  
   }
 
     return (
-      <div style ={style}>{greeting}
+      <div>
+          <ItemCount onAdd = {onAdd} stock = {10}/>
       </div>
     )
   }
@@ -16,4 +19,6 @@ const ItemListContainer =({greeting})=>
 
  /* function ItemListContainer (props){
     return <h2>I am a { props.brand }!</h2>;
-  }*/
+  }
+
+<ItemCount stock="5" initial="1"/>*/

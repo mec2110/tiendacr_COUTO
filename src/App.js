@@ -7,16 +7,19 @@ import ItemListContainer from "./components/ItemListContainer";
 
 
 
+
 function App() {
   return (
     <div className="App"> 
 
-      <header>
+      <header> 
         <NavBar />
-        <ItemListContainer greeting="Te damos la bienvenida curios@"/>
-       <img src={logo} className="App-logo" alt="logo" />
+        <img src={logo} className="App-logo" alt="logo" />
+        
+       
         <p>
-          Desafio 3 - creando componentes
+          <h6>desafio 4 </h6>
+          <ItemListContainer/>
         </p> 
       </header>
       </div>
@@ -24,4 +27,6 @@ function App() {
 }
 
 export default App;
+
+
 

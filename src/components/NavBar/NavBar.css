@@ -25,6 +25,55 @@
     color:rgb(39, 187, 192);
  }
 
- .bg-dark { 
-  color:rgb(39, 187, 192)!important;
+ .bg-dark2 { 
+  background-color:#18cbc4 !important;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+  color: rgba(254,230,156,255) !important;
+}
+
+.Img-Responsive{
+  margin-left: 20px;
+}
+
+.btn-itemcount1{
+  background-color:#18cbc4 !important;
+  color:#fee69c;
+  padding: 10;
+  margin: 2px;
+
+
+}
+
+.btn-itemcount2{
+  background-color:#9d9ad6
+  !important;
+  color:#fee69c;
+  padding: 10;
+  margin: 2px;
+
+
+}
+
+.btn-itemcount3{
+  background-color:#ffcb08
+  !important;
+  color:#18cbc4;
+  padding: 10;
+  margin: 2px;
+  font-weight: 900;
+  border-color:#18cbc4 solid 1 ;
+
+}
+
+.count{
+  color:#9d9ad6;
+  font-weight: 900;
+  margin: 2px;
+
+}
+
+.fondo{
+  backgroundColor:#fee69c;
 }
