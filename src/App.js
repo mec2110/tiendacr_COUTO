@@ -2,6 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import NavBar from "./components/NavBar/NavBar";
 import ItemListContainer from "./components/ItemListContainer";
+import ItemDetailContainer from "./components/ItemDetailContainer";
 
 
 
@@ -20,6 +21,7 @@ function App() {
         <p>
           <h6>desafio 4 </h6>
           <ItemListContainer/>
+          <ItemDetailContainer/>
         </p> 
       </header>
       </div>

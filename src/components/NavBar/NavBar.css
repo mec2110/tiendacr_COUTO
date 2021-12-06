@@ -75,11 +75,18 @@
 }
 
 .fondo{
-  backgroundColor:#fee69c;
+  background-color:#fee69c;
 }
 
 .ItemListContainer{
-  backgroundColor:#9d9ad6;
+  background-color:#9d9ad6;
   color:#fff;
   font-size: 18px;
+}
+
+.ItemImg{
+  background-color:#fee69c;
+  width: 500px;
+  margin: 15px;
+  position: absolute;
 }

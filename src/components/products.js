@@ -22,10 +22,18 @@ export const getCategories =() =>{
     })
   }
 
-export const getProducts =() =>{
+export const getItems =() =>{
     return new Promise((resolve,reject) => {
         setTimeout (() => {
             resolve (products)
+        },2000)
+    })
+ }
+
+ export const getItem =() =>{
+    return new Promise((resolve,reject) => {
+        setTimeout (() => {
+            resolve (products {0})
         },2000)
     })
  }
