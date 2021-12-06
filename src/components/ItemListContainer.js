@@ -1,32 +1,35 @@
 import React, { useEffect, useState } from "react";
 import ItemCount from "./ItemCount";
 import ItemList from "./ItemList";
-import {getItems} from "./products";
+import "./NavBar/NavBar.css";
+import { getItems } from "./products";
+
+
 
 const ItemListContainer =()=> {
-     const [items, setItems] = useState ([])
+     const [products, setProducts] = useState ([])
 
   useEffect(()=>{
     const list = getItems()
     list.then (list => {
-      setItems(list)
+      setProducts(list) // un solo item
     })
 
     return (() => {
-      setItems([])
+      setProducts([])
     })
   }, [])
 
-  const onAdd = () => {
+  /*const onAdd = () => {
     console.log ("Agregado al carrito")
   
-  }
+  }*/
    
   
   return (
-      <div>
-          <ItemList items = {items} />
-          <ItemCount onAdd = {onAdd} stock = {10} initial={1}/>
+      <div className="ItemListContainer">
+        <ItemList products= {products} />
+        <ItemCount stock = {10} initial={1}/> {/*le saque  onAdd = {onAdd} */}
 
       </div>
     )

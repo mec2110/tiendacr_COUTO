@@ -77,3 +77,9 @@
 .fondo{
   backgroundColor:#fee69c;
 }
+
+.ItemListContainer{
+  backgroundColor:#9d9ad6;
+  color:#fff;
+  font-size: 18px;
+}
