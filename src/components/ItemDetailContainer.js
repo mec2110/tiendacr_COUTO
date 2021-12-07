@@ -1,34 +1,38 @@
-
 import React, { useEffect, useState } from "react";
 import ItemDetail from "./ItemDetail";
 import { getItem } from "./products";
 import "./NavBar/NavBar.css";
 
 const ItemDetailContainer =() => {
-const [products, setProducts] = useState ([]);
+	const [products, setProducts] = useState ([])
 
-useEffect (() =>{
-fetch ("https://api.mercadolibre.com/sites/MLA/search?q=iphone")
-.then (response =>{
-return response.json ()}).then(res=>{
- setProducts(res.results.slice(0))
-})
+	useEffect(()=>{
+		fetch("https://api.mercadolibre.com/sites/MLA/search?q=iphone")
+		.then(response =>{
+			console.log("ACA")
+			console.log(response.json())
+			return response.json()
+			}).then(res=>{
+				setProducts(res.results.slice(0))
+				})
+		})
 
-useEffect(()=>{
-    const list = getItem()
-    list.then (list => {
-      setProducts(list) // un solo item
-    })
+		useEffect(()=>{
+			const list = getItem()
+			list.then (list => {
+			  setProducts(list) // un solo item
+			})
 
-    return (() => {
-      setProducts([])
-    })
-  }, [])
+			return (() => {
+			  setProducts([])
+			})
+		  }, [])
 
-return (
-<div>
-<ItemDetail products={products}/>
-</div>
-};
+		return (
+			<div>
+			<ItemDetail products={products}/>
+			</div>
+			)
+	
 }
 export default ItemDetailContainer;
