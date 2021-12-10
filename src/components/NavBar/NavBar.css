@@ -83,3 +83,31 @@
   color:#fff;
   font-size: 18px;
 }
+
+.itemImg{
+  width: 300px;
+}
+
+.titulo{
+  color:#18cbc4;
+  font-weight: 900;
+  font-size: 21px;
+}
+
+.datos{
+  color:#18cbc4;
+  font-weight: 900;
+  font: 18px;
+}
+
+.btndetalle{
+  background-color:#ffcb08
+  !important;
+  color:#18cbc4;
+  padding: 10;
+  margin: 2px;
+  font-weight: 900;
+  border-color:#18cbc4 solid 1 ;
+  border-radius: 1em;
+
+}

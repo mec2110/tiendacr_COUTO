@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import ItemCount from "./ItemCount";
 import ItemList from "./ItemList";
 import "./NavBar/NavBar.css";
-import { getItems } from "./products";
+import { getProducts } from "./products";
 
 
 
@@ -10,7 +10,7 @@ const ItemListContainer =()=> {
      const [products, setProducts] = useState ([])
 
   useEffect(()=>{
-    const list = getItems()
+    const list = getProducts()
     list.then (list => {
       setProducts(list) // un solo item
     })

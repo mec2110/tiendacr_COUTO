@@ -9,9 +9,9 @@ const products = [
   ]
   
 const categories =[
-    {id="vinilo1", description: "Vinilo Harry Potter 1m color rojo"},
-    {id="vinilo2", description: "Vinilo Stranger Things 1m color rojo"},
-    {id="vinilo3", description: "Vinilo Dragon ball Z 1m color rojo"}
+    {id:"vinilo1", description: "Vinilo Harry Potter 1m color rojo"},
+    {id:"vinilo2", description: "Vinilo Stranger Things 1m color rojo"},
+    {id:"vinilo3", description: "Vinilo Dragon ball Z 1m color rojo"}
 ]
 
 export const getCategories =() =>{
