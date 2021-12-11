@@ -1,13 +1,9 @@
-import logo from './logo.svg';
+
+import portada from './portada.jpeg';
 import './App.css';
 import NavBar from "./components/NavBar/NavBar";
 import ItemListContainer from "./components/ItemListContainer";
 import ItemDetailContainer from "./components/ItemDetailContainer";
-
-
-
-
-
 
 function App() {
   return (
@@ -15,14 +11,13 @@ function App() {
 
       <header> 
         <NavBar />
-        <img src={logo} className="App-logo" alt="logo" />
+        <img src={portada} className="App-logo" alt="portada" />
         
-       
-        <p>
-          <h6>desafio 4 </h6>
+        <div>
+          <h6> Desafio 6 </h6>
           <ItemListContainer/>
           <ItemDetailContainer/>
-        </p> 
+        </div> 
       </header>
       </div>
   );

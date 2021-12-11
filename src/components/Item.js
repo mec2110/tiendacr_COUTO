@@ -1,20 +1,21 @@
-
+import "./NavBar/NavBar.css";
 import React from "react";
 
 const Item= ({product}) => {
   //card 1
     return(
       <div style={{backgroundColor:"#ccc"}}> 
-        <h1>{product.name}</h1>
+      <li>
+        <h1 className="titulo">{product.name}</h1>
         <p><img src={product.img} alt={product.name} className="itemImg"/></p>
         
-        <p>
-          Categoria: [product.category]
+        <p className="datos">
+          Categoria: {product.category}
         </p>
          
-        <p>{product.price}</p>
-
-       <button> Ver detalle</button>
+        <p className="datos">${product.price}</p>
+       <button className="btndetalle"> Ver detalle</button>
+       </li> 
       </div>
     );
     

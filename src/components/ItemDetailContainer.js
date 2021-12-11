@@ -7,26 +7,15 @@ const ItemDetailContainer =() => {
 	const [products, setProducts] = useState ([])
 
 	useEffect(()=>{
-		fetch("https://api.mercadolibre.com/sites/MLA/search?q=iphone")
-		.then(response =>{
-			console.log("ACA")
-			console.log(response.json())
-			return response.json()
-			}).then(res=>{
-				setProducts(res.results.slice(0))
-				})
+		const list = getItem()
+		list.then (list => {
+		  setProducts(list) // un solo item en detalle 
 		})
-
-		useEffect(()=>{
-			const list = getItem()
-			list.then (list => {
-			  setProducts(list) // un solo item
-			})
-
-			return (() => {
-			  setProducts([])
-			})
-		  }, [])
+	
+		return (() => {
+		  setProducts([])
+		})
+	  }, [])
 
 		return (
 			<div>
