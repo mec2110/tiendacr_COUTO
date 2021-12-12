@@ -11,12 +11,13 @@ function App() {
 
       <header> 
         <NavBar />
-        <img src={portada} className="App-logo" alt="portada" />
+        <img src={portada} className="App-portada" alt="portada" />
         
         <div>
-          <h6> Desafio 6 </h6>
+          <h1> Desafio 6 corregido </h1>
           <ItemListContainer/>
           <ItemDetailContainer/>
+
         </div> 
       </header>
       </div>

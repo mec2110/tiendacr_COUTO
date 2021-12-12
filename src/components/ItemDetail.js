@@ -2,20 +2,22 @@ import React from "react";
 import "./NavBar/NavBar.css";
 
 
-const ItemDetail= ({Item}) => {
+const ItemDetail= ({product}) => {
   //card 1 detalle
  
     return(
-      <div className="row" style={{backgroundColor:"#fee69c"}}> 
+      <div > 
         
-        <h1 className="titulo">{Item.name}</h1>
-        <div className="datos2">${Item.price}</div>
+        <h1 className="titulo">{product.name}</h1>
+        <div className="datos2">Precio: ${product.price}</div>
 
         <div>
-        <img src={Item.img} alt={Item.name} className="itemImg2"/>
+        <img src={product.img} alt={product.name} className="itemImg2"/>
         </div>
         
-        <div className="datos">{Item.description}</div>
+        <div className="datos">Descripción del producto
+        <p> {product.description} </p>
+         </div>
         
         
       </div>

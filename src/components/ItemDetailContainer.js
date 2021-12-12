@@ -7,9 +7,9 @@ const ItemDetailContainer =() => {
 	const [product, setProduct] = useState ([])
 
 	useEffect(()=>{
-		const list = getItem()
-		list.then (list => {
-		  setProduct(list) // un solo item en detalle 
+		const item = getItem()
+		item.then (item => {
+		  setProduct(item) // un solo item en detalle 
 		})
 	
 		return (() => {

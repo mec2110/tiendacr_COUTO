@@ -13,17 +13,14 @@
 }
 
 .list { 
-    display:block;
-    color:#ccc;
+    display:inline-flex;
     text-align: center;
     padding: 10px 15px;
-    font-size: 15px;
-  text-decoration: none;
+    text-decoration: none;
+    margin: 10px;
+    list-style-type: none;
 }
 
-.list:hover { 
-    color:rgb(39, 187, 192);
- }
 
  .bg-dark2 { 
   background-color:#18cbc4 !important;
@@ -81,21 +78,20 @@
 .ItemListContainer{
   background-color:#9d9ad6;
   color:#fff;
-  font-size: 18px;
 }
 
-.ItemImg{
+.itemImg{
+  background-color:#fee69c;
+  width: 200px;
+  margin: 5px;
+  
+}
+
+.itemImg2{
   background-color:#fee69c;
   width: 500px;
-  margin: 15px;
-  position: absolute;
-}
-
-.ItemImg2{
-  background-color:#fee69c;
-  width: 1000px;
-  margin: 15px;
-  position: absolute;
+  margin: 5px;
+ 
 }
 
 .titulo{
