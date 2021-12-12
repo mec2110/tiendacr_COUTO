@@ -14,7 +14,7 @@ const categories = [
     {id:"vinilo3", description: "Vinilo Dragon ball Z 1m.  Disponible en negro, rojo y azul. Listo para colocar."}
 ]
 
-export const getCategories =() =>{
+export const getCategories = () =>{
    return new Promise((resolve,reject) => {
         setTimeout (() => {
             resolve (categories)
@@ -22,7 +22,7 @@ export const getCategories =() =>{
    })
  }
 
-export const getProducts =() =>{
+export const getProducts = () => {
     return new Promise((resolve,reject) => {
         setTimeout (() => {
             resolve (products)
@@ -30,10 +30,10 @@ export const getProducts =() =>{
     })
  }
 
- export const getItem =() =>{
+ export const getItem = () => {
     return new Promise((resolve,reject) => {
         setTimeout (() => {
             resolve (products[0])
-        },2000)
+        }, 2000)
     })
  }

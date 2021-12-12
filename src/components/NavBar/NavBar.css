@@ -13,17 +13,24 @@
 }
 
 .list { 
-    display:block;
-    color:#ccc;
+    
+    display: inline !important;
     text-align: center;
     padding: 10px 15px;
     font-size: 15px;
-  text-decoration: none;
+    text-decoration: none;
+    list-style-type: none;
 }
 
-.list:hover { 
-    color:rgb(39, 187, 192);
- }
+li { display: inline; }
+
+
+ul
+{
+   padding: 0px;
+   margin: 0px;
+}
+
 
  .bg-dark2 { 
   background-color:#18cbc4 !important;
@@ -84,34 +91,33 @@
   font-size: 18px;
 }
 
-.ItemImg{
+.itemImg {
   background-color:#fee69c;
-  width: 500px;
-  margin: 15px;
-  position: absolute;
+  width:300px!important;
+  margin: 5px;
+  
 }
 
-.ItemImg2{
-  background-color:#fee69c;
-  width: 1000px;
+.itemImg2{
+  background-color:#18cbc4;
+  width: 800px;
   margin: 15px;
-  position: absolute;
 }
 
 .titulo{
-  color:#18cbc4;
+  color:#fee69c;
   font-weight: 900;
-  font-size: 21px;
+  font-size: 26px;
 }
 
 .datos{
-  color:#18cbc4;
+  color:#fee69c;
   font-weight: 900;
   font: 18px;
 }
 
 .datos2{
-  color:#18cbc4;
+  color:#fee69c;
   font-weight: bold;
   font: 25px;
 }
@@ -126,4 +132,14 @@
   border-color:#18cbc4 solid 1 ;
   border-radius: 1em;
 
+}
+
+.ItemDetailContaner{
+
+  background-color:#ebd5ff
+  !important;
+}
+
+.App-portada{
+  width:100% !important;
 }
