@@ -1,23 +1,28 @@
 import React from "react";
 import "./NavBar/NavBar.css";
 
-const ItemDetail= ({item}) => {
+
+const ItemDetail= ({Item}) => {
   //card 1 detalle
  
     return(
-      <div> 
+      <div className="row" style={{backgroundColor:"#fee69c"}}> 
         
-        
-        <div className="datos2">${item.price}</div>
+        <h1 className="titulo">{Item.name}</h1>
+        <div className="datos2">${Item.price}</div>
 
         <div>
-        <img src={item.img} alt={item.name} className="itemImg"/>
+        <img src={Item.img} alt={Item.name} className="itemImg2"/>
         </div>
         
-        <div className="datos">{item.description}</div>
+        <div className="datos">{Item.description}</div>
         
         
       </div>
+
     );
- }
+    
+  }
+  
 export default ItemDetail;
+

@@ -91,6 +91,13 @@
   position: absolute;
 }
 
+.ItemImg2{
+  background-color:#fee69c;
+  width: 1000px;
+  margin: 15px;
+  position: absolute;
+}
+
 .titulo{
   color:#18cbc4;
   font-weight: 900;

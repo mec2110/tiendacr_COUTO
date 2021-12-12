@@ -4,8 +4,8 @@ import React from "react";
 const Item= ({product}) => {
   //card 1
     return(
-      <div style={{backgroundColor:"#ccc"}}> 
-      <li>
+      <div className="row" style={{backgroundColor:"#fee69c"}}> 
+      <li className="list">
         <h1 className="titulo">{product.name}</h1>
         <p><img src={product.img} alt={product.name} className="itemImg"/></p>
         

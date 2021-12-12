@@ -4,22 +4,22 @@ import { getItem } from "./products";
 import "./NavBar/NavBar.css";
 
 const ItemDetailContainer =() => {
-	const [products, setProducts] = useState ([])
+	const [product, setProduct] = useState ([])
 
 	useEffect(()=>{
 		const list = getItem()
 		list.then (list => {
-		  setProducts(list) // un solo item en detalle 
+		  setProduct(list) // un solo item en detalle 
 		})
 	
 		return (() => {
-		  setProducts([])
+		  setProduct([])
 		})
 	  }, [])
 
 		return (
 			<div>
-			<ItemDetail products={products}/>
+			<ItemDetail product={product}/>
 			</div>
 			)
 	

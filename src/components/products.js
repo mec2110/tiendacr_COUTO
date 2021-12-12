@@ -8,19 +8,19 @@ const products = [
     { id:"3", name:"Vinilo Dbz",category:"vinilo", price: 500,img:"https://d22fxaf9t8d39k.cloudfront.net/49313c7a44e88d6b43dcbefcdb55b65b6d839a87fedcfb6d146f83270de81b0943531.jpeg"},
   ]
   
-const categories =[
+const categories = [
     {id:"vinilo1", description: "Vinilo Harry Potter 1m. Disponible en negro, rojo y azul. Listo para colocar."},
     {id:"vinilo2", description: "Vinilo Stranger Things 1m.  Disponible en negro, rojo y azul. Listo para colocar."},
     {id:"vinilo3", description: "Vinilo Dragon ball Z 1m.  Disponible en negro, rojo y azul. Listo para colocar."}
 ]
 
 export const getCategories =() =>{
-    return new Promise((resolve,reject) => {
+   return new Promise((resolve,reject) => {
         setTimeout (() => {
             resolve (categories)
-        },1000)
-    })
-  }
+       },1000)
+   })
+ }
 
 export const getProducts =() =>{
     return new Promise((resolve,reject) => {
@@ -33,7 +33,7 @@ export const getProducts =() =>{
  export const getItem =() =>{
     return new Promise((resolve,reject) => {
         setTimeout (() => {
-            resolve (products[1])
+            resolve (products[0])
         },2000)
     })
  }
