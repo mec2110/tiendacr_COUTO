@@ -1,11 +1,12 @@
 import "./NavBar/NavBar.css";
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Item= ({product}) => {
   //card 1
     return(
-      <div className="list" style={{backgroundColor:"#fee69c"}}> 
-      <li >
+    <div className="list" style={{backgroundColor:"#fee69c"}}> 
+      <li>
         <h1 className="titulo">{product.name}</h1>
         <p><img src={product.img} alt={product.name} className="itemImg"/></p>
         
@@ -14,11 +15,13 @@ const Item= ({product}) => {
         </p>
          
         <p className="datos">${product.price}</p>
-       <button className="btndetalle"> Ver detalle</button>
-       </li> 
-      </div>
+        <div>
+       <Link className="btndetalle" to = {`/detail/${product.id}`}  > Ver detalle </Link>
+       </div>
+      </li>
+    </div> 
     );
     
   }
   
-export default Item;
+export default Item

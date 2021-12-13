@@ -27,7 +27,7 @@ export const getCategories =() =>{
             resolve (categories)
        },1000)
    })
- }
+ }//me devuelve una categoria
 
 export const getProducts =() =>{
     return new Promise((resolve,reject) => {
@@ -35,14 +35,20 @@ export const getProducts =() =>{
             resolve (products)
         },2000)
     })
- }
+ } //me devuelve el listado de productos
 
- 
+ export const getProductById =(id) =>{
+    return new Promise((resolve,reject) => {
+        const product = products.find(prod => parseInt(prod.id) === parseInt (id))
+        setTimeout (() => {
+            resolve (product)},1000)
+    })
+ } //me devuelve el producto con el Id indicado
 
  export const getItem =() =>{
     return new Promise((resolve,reject) => {
         setTimeout (() => {
             resolve (products[0])
-        },3000)
+        },2000)
     })
- }
+ } //me devuelve un solo item destacado

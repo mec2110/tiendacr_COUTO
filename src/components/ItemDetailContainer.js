@@ -1,21 +1,27 @@
 import React, { useEffect, useState } from "react";
 import ItemDetail from "./ItemDetail";
-import { getItem } from "./products";
+import { getProductById } from "./products";
 import "./NavBar/NavBar.css";
+import { useParams} from "react-router-dom";
 
-const ItemDetailContainer =() => {
-	const [product, setProduct] = useState ([])
+const ItemDetailContainer = ()=> {
+	const [product, setProduct] = useState ()
+	const { paramId } = useParams ()
 
-	useEffect(()=>{
-		const item = getItem()
-		item.then (item => {
-		  setProduct(item) // un solo item en detalle 
+  console.log(paramId)
+
+	useEffect(() => {
+		getProductById(paramId).then(item => {
+			setProduct(item) // un solo item en detalle segùn la id
+		}).catch(err => {
+			console.log(err)
 		})
 	
 		return (() => {
-		  setProduct([])
+			setProduct()
 		})
-	  }, [])
+
+	  }, [paramId])
 
 		return (
 			<div>

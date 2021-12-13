@@ -8,14 +8,16 @@ const ItemDetail= ({product}) => {
     return(
       <div > 
         
-        <h1 className="titulo">{product.name}</h1>
-        <div className="datos2">Precio: ${product.price}</div>
+        <h1 className="titulo"> {product.name} </h1>
 
         <div>
         <img src={product.img} alt={product.name} className="itemImg2"/>
         </div>
+
+        <div className="precio"> Precio: ${product.price}</div>
+
+        <div className="descripcion"> <strong>Descripción del producto:</strong>
         
-        <div className="datos">Descripción del producto
         <p> {product.description} </p>
          </div>
         

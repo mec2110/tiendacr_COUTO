@@ -3,12 +3,13 @@ import ItemCount from "./ItemCount";
 import ItemList from "./ItemList";
 import "./NavBar/NavBar.css";
 import { getProducts } from "./products";
+//import { useParams} from "react-router-dom";
 
 
 
 const ItemListContainer =()=> {
      const [products, setProducts] = useState ([])
-
+//const { categoryId } = useParams ()
   useEffect(()=>{
     const list = getProducts()
     list.then (list => {

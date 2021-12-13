@@ -127,6 +127,17 @@ font-weight: bold;
 font: 25px;
 }
 
+.precio{
+  color:#9d9ad6;
+  font-weight: bold;
+  font: 30px;
+  }
+
+.descripcion{
+  font-size: 18px;
+  color:#18cbc4;
+}
+
 .btndetalle{
 background-color:#ffcb08
 !important;

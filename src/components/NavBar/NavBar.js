@@ -25,7 +25,7 @@ const NavBar = () => {
         <Link to={"/detail"} className="link">Detalle</Link>
         </li>
         <li className="nav-item">
-        <Link to={"/count"} className="link">Mis compras</Link>
+        <Link to={"/count"} className="link">Categorías</Link>
         </li>  
       </ul>
       </div>
