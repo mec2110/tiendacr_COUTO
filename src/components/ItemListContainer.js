@@ -3,15 +3,34 @@ import ItemCount from "./ItemCount";
 import ItemList from "./ItemList";
 import "./NavBar/NavBar.css";
 import { getProducts } from "./products";
+import { getCategoryById } from "./products";
+import { useParams} from "react-router-dom";
+
+
 //import { useParams} from "react-router-dom";
 
 
 
 const ItemListContainer =()=> {
-     const [products, setProducts] = useState ([])
-//const { categoryId } = useParams ()
+     const {categoryId} = useParams()
+     const [products, setProducts] = useState ([]);
+
   useEffect(()=>{
-    const list = getProducts()
+
+    console.log(categoryId)
+
+    const list = getCategoryById(categoryId)
+    category.then (category => {
+      setProducts(category)
+    })
+
+    return (() => {
+      setProducts([])
+    })
+  }, [categoryId])
+
+  useEffect(()=>{
+ const list = getProducts()
     list.then (list => {
       setProducts(list) // un solo item
     })
