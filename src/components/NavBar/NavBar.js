@@ -1,7 +1,7 @@
 import logoCR from './logoCR.png';
 import "./NavBar.css";
 import CartWidget from "./CartWidget";
-
+import {Link} from "react-router-dom";
 
 
 
@@ -19,13 +19,13 @@ const NavBar = () => {
     <div className="collapse navbar-collapse" id="mynavbar">
       <ul className="navbar-nav me-auto">
         <li className="nav-item">
-          <a className="nav-link" href="home.html">Quienes somos</a>
+         <Link to={"/"} className="link">Productos</Link>
         </li>
         <li className="nav-item">
-          <a className="nav-link" href="productos.html">Productos</a>
+        <Link to={"/detail"} className="link">Detalle</Link>
         </li>
         <li className="nav-item">
-          <a className="nav-link" href="contacto.html">Contacto</a>
+        <Link to={"/count"} className="link">Mis compras</Link>
         </li>  
       </ul>
       </div>

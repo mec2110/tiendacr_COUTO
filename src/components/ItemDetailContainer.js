@@ -8,20 +8,17 @@ const ItemDetailContainer =() => {
 
 	useEffect(()=>{
 		const item = getItem()
-
 		item.then (item => {
 		  setProduct(item) // un solo item en detalle 
-		}).catch (err => {
-			console.log(err)
 		})
 	
 		return (() => {
-		  setProduct()
+		  setProduct([])
 		})
 	  }, [])
 
 		return (
-			<div className="ItemDetailContaner">
+			<div>
 			<ItemDetail product={product}/>
 			</div>
 			)

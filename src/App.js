@@ -1,27 +1,21 @@
-
 import portada from './portada.jpeg';
 import './App.css';
 import NavBar from "./components/NavBar/NavBar";
 import ItemListContainer from "./components/ItemListContainer";
 import ItemDetailContainer from "./components/ItemDetailContainer";
 import ItemCount from "./components/ItemCount";
-import React, {useState } from "react";
+//import React, {useState } from "react";
 import "./components/NavBar/NavBar.css";
+import {BrowserRouter, Switch, Route} from"react-router-dom";
 
 const App = () => {
-  const [route,setRoute] = useState ("list")
-  console.log(route)
-
+ 
   return (
     <div className="App"> 
-
-      <header> 
-        <NavBar />
-        <div>
-          <button onClicK={ () => setRoute ("list")}>list</button>
-          <button onClicK={ () => setRoute ("detail")}>detail</button>
-          <button onClicK={ () => setRoute ("count")}>count</button>
-        </div>
+      
+    <BrowserRouter> 
+      <header>
+        <NavBar/>
       </header>
       <body>
         <div>
@@ -29,13 +23,26 @@ const App = () => {
         </div>
 
         <div>
-          <h6> Primer entrega del Proyecto</h6>
-          {route==="list" && <ItemListContainer/>}
-          {route==="detail" && <ItemDetailContainer/>}
-          {route==="count" && <ItemCount />}
+          <h1> Primer entrega del Proyecto</h1>
+          <Switch>
+            <Route exact path="/">
+               <ItemListContainer/>
+            </Route>
+
+           <Route path="/detail">
+             <ItemDetailContainer/>
+           </Route>
+
+           <Route path="/count">
+             <ItemCount />
+            </Route>
+
+          </Switch>
         </div> 
       </body>
-      </div>
+     
+    </BrowserRouter> 
+    </div>
   );
 }
 
