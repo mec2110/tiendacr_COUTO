@@ -16,7 +16,7 @@ const Item= ({product}) => {
          
         <p className="datos">${product.price}</p>
         <div>
-       <Link className="btndetalle" to = {`/detail/${product.id}`}  > Ver detalle </Link>
+       <Link className="btndetalle" to = {`/item/${product.id}`}  > Ver más </Link>
        </div>
       </li>
     </div> 

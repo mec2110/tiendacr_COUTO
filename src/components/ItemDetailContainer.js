@@ -5,8 +5,8 @@ import "./NavBar/NavBar.css";
 import { useParams} from "react-router-dom";
 
 const ItemDetailContainer = ()=> {
-	const [product, setProduct] = useState ()
-	const { paramId } = useParams ()
+	const [product, setProduct] = useState ({});
+	const { paramId } = useParams()
 
   console.log(paramId)
 

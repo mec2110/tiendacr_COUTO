@@ -10,9 +10,9 @@ const NavBar = () => {
 
   <nav className="navbar navbar-expand-sm navbar-dark bg-dark2">
      <div className="container-fluid" >
-       <a className="navbar-brand" href="index.html">
+     <Link to={"/"} className="link">
        <img src={logoCR}  className="img-responsive" alt="logoCR" height="50px"/>
-       </a>
+       </Link>
      <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
       <span className="navbar-toggler-icon"></span>
      </button>
@@ -22,10 +22,10 @@ const NavBar = () => {
          <Link to={"/"} className="link">Productos</Link>
         </li>
         <li className="nav-item">
-        <Link to={"/detail"} className="link">Detalle</Link>
+        <Link to={"/item"} className="link">Detalle</Link>
         </li>
         <li className="nav-item">
-        <Link to={"/count"} className="link">Categorías</Link>
+        <Link to={"/category"} className="link">Categorías</Link>
         </li>  
       </ul>
       </div>

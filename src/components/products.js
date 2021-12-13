@@ -1,8 +1,8 @@
 
 const products = [
     { id:"1", name:"Vinilo Harry Potter", category:"vinilo",  price: 500,img:"https://d22fxaf9t8d39k.cloudfront.net/9917bde946b82f5d94cd4593a3864e6a2d383e032bd13203fc09db0c3ad8a7f243531.jpeg", description: "Vinilo Harry Potter 1m. Disponible en negro, rojo y azul. Listo para colocar.",},
-    { id:"2", name:"Vinilo Stranger Things", category:"vinilo",price: 500,img:"https://d22fxaf9t8d39k.cloudfront.net/78c87ea9bc6f832808e2cf04a0b302abdf09b22138b16a10ea3914c19ad6de5743531.jpeg"},
-    { id:"3", name:"Vinilo Dragon Ball Z",category:"vinilo", price: 500,img:"https://d22fxaf9t8d39k.cloudfront.net/49313c7a44e88d6b43dcbefcdb55b65b6d839a87fedcfb6d146f83270de81b0943531.jpeg"},
+    { id:"2", name:"Vinilo Stranger Things", category:"vinilo",price: 500,img:"https://d22fxaf9t8d39k.cloudfront.net/78c87ea9bc6f832808e2cf04a0b302abdf09b22138b16a10ea3914c19ad6de5743531.jpeg",description: "Vinilo Stranger Things 1m.  Disponible en negro, rojo y azul. Listo para colocar."},
+    { id:"3", name:"Vinilo Dragon Ball Z",category:"vinilo", price: 500,img:"https://d22fxaf9t8d39k.cloudfront.net/49313c7a44e88d6b43dcbefcdb55b65b6d839a87fedcfb6d146f83270de81b0943531.jpeg", description:"Vinilo Dragon ball Z 1m.  Disponible en negro, rojo y azul. Listo para colocar."},
     { id:"4", name:"Vinilo Spiderman", category:"vinilo",  price: 500,img:"https://d22fxaf9t8d39k.cloudfront.net/37378f32d210b1e51cb9133c654d42c9dcc9ce6f5f365250f9798b795e10bb6e43531.jpeg"},
     { id:"5", name:"Vinilo Shinjeki No Kuojin", category:"vinilo",price: 500,img:"https://d22fxaf9t8d39k.cloudfront.net/59e75e19b4aacc5980972b5d542a3a77c77629401a8963ba1e0da36c26ca03c043531.jpeg"},
     { id:"6", name:"Vinilo Alicia",category:"vinilo", price: 500,img:"https://d22fxaf9t8d39k.cloudfront.net/d4b1dba3fbe8a8b4d7c777a3bed6b6a33b4d8ff5d2553fce4867a995ec9d277843531.jpeg"},
@@ -28,6 +28,14 @@ export const getCategories =() =>{
        },1000)
    })
  }//me devuelve una categoria
+
+ export const getCategoryById =(id) =>{
+    return new Promise((resolve,reject) => {
+        const product = products.find(prod => parseInt(prod.id) === parseInt (id))
+        setTimeout (() => {
+            resolve (product)},1000)
+    })
+ } //me devuelve el producto con el Id indicado
 
 export const getProducts =() =>{
     return new Promise((resolve,reject) => {
