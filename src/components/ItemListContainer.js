@@ -15,7 +15,7 @@ const ItemListContainer =()=> {
      const [products, setProducts] = useState ([]);
 
   useEffect(()=>{
-    const item = getProducts(categoryId).then (item => {
+    getProducts(categoryId).then (item => {
          setProducts(item) // un solo item por categoria
        }).catch(err =>{
          console.log(err)
