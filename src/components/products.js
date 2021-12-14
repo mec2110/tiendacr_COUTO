@@ -29,19 +29,19 @@ export const getCategories =() =>{
    })
  }//me devuelve una categoria
 
- export const getCategoryById =(id) =>{
+ /*export const getCategoryById =(id) =>{
     return new Promise((resolve,reject) => {
         const category = categories.find(cat => parseInt(cat.id) === parseInt (id))
         setTimeout (() => {
             resolve (category)},1000)
     })
- } //me devuelve el producto con el Id indicado
+ } *///me devuelve el producto con el Id indicado
 
-export const getProducts =() =>{
+export const getProducts =(category) =>{
     return new Promise((resolve,reject) => {
         setTimeout (() => {
-            resolve (products)
-        },2000)
+            category?resolve(products.filter(product => product.category === category)):resolve(products)
+        },1000)
     })
  } //me devuelve el listado de productos
 
