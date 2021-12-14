@@ -31,9 +31,9 @@ export const getCategories =() =>{
 
  export const getCategoryById =(id) =>{
     return new Promise((resolve,reject) => {
-        const product = products.find(prod => parseInt(prod.id) === parseInt (id))
+        const category = categories.find(cat => parseInt(cat.id) === parseInt (id))
         setTimeout (() => {
-            resolve (product)},1000)
+            resolve (category)},1000)
     })
  } //me devuelve el producto con el Id indicado
 

@@ -1,6 +1,7 @@
 import Item from "./Item";
 
-const ItemList = ({products}) =>{
+const ItemList = ({products,category}) =>{
+  console.log(category)
    return (
         <ul>
           
