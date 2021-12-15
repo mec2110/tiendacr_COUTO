@@ -26,15 +26,15 @@ const ItemListContainer =()=> {
        })
      }, [categoryId])
    
-     /*const onAdd = () => {
+     const onAdd = () => {
        console.log ("Agregado al carrito")
      
-     }*/
+     }
   
   return (
       <div className="ItemListContainer">
         <ItemList products= {products}/>
-        <ItemCount stock = {10} initial={1}/> {/*le saque  onAdd = {onAdd} */}
+        <ItemCount onAdd = {onAdd} stock = {10} initial={1}/> 
 
       </div>
     )

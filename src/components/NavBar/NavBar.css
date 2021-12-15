@@ -54,7 +54,7 @@ background-color:#18cbc4 !important;
 color:#fee69c;
 padding: 10;
 margin: 2px;
-
+border-radius:2px;
 
 }
 
@@ -64,6 +64,7 @@ background-color:#9d9ad6
 color:#fee69c;
 padding: 10;
 margin: 2px;
+border-radius:2px;
 
 
 }
@@ -75,7 +76,8 @@ color:#18cbc4;
 padding: 10;
 margin: 2px;
 font-weight: 900;
-border-color:#18cbc4 solid 1 ;
+border-color:#18cbc4 solid 1;
+border-radius:2px;
 
 }
 
@@ -130,7 +132,7 @@ font: 25px;
 .precio{
   color:#9d9ad6;
   font-weight: bold;
-  font: 30px;
+  font: 35px;
   }
 
 .descripcion{
@@ -142,14 +144,34 @@ font: 25px;
 background-color:#ffcb08
 !important;
 color:#18cbc4;
-padding: 10;
-margin: 2px;
+padding: 5px !important;
+margin: 5px;
 font-weight: 900;
 border-color:#18cbc4 solid 1 ;
 border-radius: 1em;
+text-decoration: none;
+font-size: 10px;
 
 }
 
+.btnfiltro{
+  background-color:#ffcb08
+  !important;
+  color:#18cbc4;
+  padding: 2px !important;
+  margin: 1em;
+  font-weight: 900;
+  border-color:#18cbc4 solid 1 ;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 15px!important;
+  
+  }
+
 .App-portada{
   width:100% !important;
+}
+
+.margin-top{
+  margin-top: 10px !important;
 }

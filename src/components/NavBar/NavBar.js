@@ -22,7 +22,7 @@ const NavBar = () => {
          <Link to={"/"} className="link">Productos</Link>
         </li>
         <li className="nav-item">
-        <Link to={"/item"} className="link">Detalle</Link>
+        <Link to={"/item/2"} className="link">Detalle</Link>
         </li>
         <li className="nav-item">
         <Link to={"/category"} className="link">Categorías</Link>

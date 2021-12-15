@@ -21,14 +21,19 @@ const ItemList = ({products,category}) =>{
    return (
 
         <div>
-          {categories.map(cat => <Link key={cat.id} className="btndetalle" to = {`/category/${cat.id}`}> {cat.description} </Link> )}
-        
+
+        <div className="margin-top"> <p>Categorías:</p>
+          {categories.map(cat => <Link key={cat.id} className="btnfiltro" to = {`/category/${cat.id}`}> {cat.description} </Link> )}
+        </div>
+          
         <ul>
           
           {products.map
           (product => <Item key={product.id} product={product}/>)
           } 
         </ul>
+
+        
 
         </div>
 
