@@ -35,9 +35,8 @@ const restar = () => {
 
 return (
     <div >
-        <div className="count"> Tenés {count} productos en tu carrito </div>
        <div>
-            <button className="btn-itemcount1" onClick={sumar}> + </button> hola {count}
+            <button className="btn-itemcount1" onClick={sumar}> + </button> <span className="count"> {count} </span>
             <button className="btn-itemcount2" onClick={restar}> - </button>
         </div>
         <div>

@@ -3,7 +3,7 @@ import './App.css';
 import NavBar from "./components/NavBar/NavBar";
 import ItemListContainer from "./components/ItemListContainer";
 import ItemDetailContainer from "./components/ItemDetailContainer";
-import ItemCount from "./components/ItemCount";
+//import ItemCount from "./components/ItemCount";
 import Cart from "./components/Cart";
 import Footer from "./components/footer/Footer";
 //import React, {useState } from "react";
@@ -36,15 +36,11 @@ const App = () => {
                <ItemListContainer/>
             </Route>
 
-           <Route path="/item/:paramId">
+           <Route exact path="/item/:paramId">
              <ItemDetailContainer/>
            </Route>
            
-            <Route path="/count">
-             <ItemCount />
-            </Route>
-
-            <Route path='/cart'>
+            <Route exact path='/cart'>
 		      		<Cart />
 		      	</Route>
 

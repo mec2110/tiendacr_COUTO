@@ -14,7 +14,7 @@ const Footer = () => {
 
                <Link to={"/"} className="link">
                   <img src={logoCR}  className="img-responsive" alt="logoCR" height="50px"/>
-               </Link>  curiousrabbit15@gmail.com / @curiousrabbitdesign
+               </Link>  <span className="footer">curiousrabbit15@gmail.com / @curiousrabbitdesign </span>
             </div>
             ) ;     
 }
