@@ -5,7 +5,7 @@ import "./NavBar/NavBar.css";
 const ItemCount = ({stock, initial, onAdd}) => {
 
 const [count,setCount] = useState (1)
-
+//const [stock,setStock] = useState ()
 
 const sumar = () => {
     //Stock hasta 10
@@ -23,18 +23,26 @@ const restar = () => {
      }
 }
 
+/*const quantity = () => {
+    //Stock hasta 1
+    if (stock=0){
+        setCount ("No hay stock");
+       
+     }
+}*/
+
 
 
 return (
-    <div className ="fondo">
+    <div >
         <div className="count"> Tenés {count} productos en tu carrito </div>
        <div>
-            <button className="btn-itemcount1" onClick={sumar}> + </button>
+            <button className="btn-itemcount1" onClick={sumar}> + </button> hola {count}
             <button className="btn-itemcount2" onClick={restar}> - </button>
         </div>
         <div>
             <button onClick={onAdd} className="btn-itemcount3"> Agregar a mi carrito</button>
-            <h6> Quedan disponibles: {stock}</h6>
+            <p className="alertCount"> Quedan disponibles: {stock}</p>
         </div>
 
     </div>

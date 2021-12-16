@@ -5,6 +5,7 @@ import ItemListContainer from "./components/ItemListContainer";
 import ItemDetailContainer from "./components/ItemDetailContainer";
 import ItemCount from "./components/ItemCount";
 import Cart from "./components/Cart";
+import Footer from "./components/footer/Footer";
 //import React, {useState } from "react";
 import "./components/NavBar/NavBar.css";
 import {BrowserRouter, Switch, Route} from"react-router-dom";
@@ -24,7 +25,7 @@ const App = () => {
         </div>
 
         <div>
-          <h1> Primer entrega del Proyecto</h1>
+          <h1> Sincronizando ItemCount</h1>
           <Switch>
             <Route exact path="/">
                <ItemListContainer/>
@@ -50,8 +51,12 @@ const App = () => {
           </Switch>
         </div> 
       </body>
+
+      <Footer />
      
     </BrowserRouter> 
+
+    
     </div>
   );
 }
