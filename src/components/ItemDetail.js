@@ -6,11 +6,12 @@ import ItemCount from "./ItemCount";
 
 
 const ItemDetail= ({product}) => {
-  const onAdd = () => {
-    console.log ("Agregado al carrito")
+
+  const onAdd = (quantityToAdd) => {
+    console.log ("Agregado al carrito:" + quantityToAdd)
     }
 
-  return(
+  return (
       <div className="container"> 
         
         <h1 className="titulo"> {product.name} </h1>
@@ -19,30 +20,25 @@ const ItemDetail= ({product}) => {
         <img src={product.img} alt={product.name} className="itemImg2"/>
         </div>
 
-        <div className="precio"> Precio: ${product.price}</div>
+        <div className="precio">
+          Precio: ${product.price}
+        </div>
 
-        <div className="descripcion"> <strong>Descripción del producto:</strong>
-        
-        <p> {product.description} </p>
-         </div>
+        <div className="descripcion">
+          <strong>Descripción del producto:</strong>
+          <p> {product.description} </p>
+        </div>
          
-         <div> 
-         <Link to={"/"} className="btndetalle">Ver otros productos </Link>
-
-         </div>
+        <div className="margin-top"> 
+           <Link to={"/"} className="btndetalle">Ver otros productos </Link>
+        </div>
          
-          <div className="margintop">
-          <ItemCount onAdd = {onAdd} stock = {product.stock} initial={1} />
-          </div>
-
-</div>
-
-        
-        
-      
-
+        <footer className="margin-top">
+            <ItemCount onAdd = {onAdd()} stock = {product.stock} initial={1} />
+        </footer>
+      </div>
 )
-}
-  
-export default ItemDetail;
+  }
+
+  export default ItemDetail;
 
