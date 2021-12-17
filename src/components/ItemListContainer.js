@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import ItemCount from "./ItemCount";
+//import ItemCount from "./ItemCount";
 import ItemList from "./ItemList";
 import "./NavBar/NavBar.css";
 import { getProducts } from "./products";
@@ -26,15 +26,11 @@ const ItemListContainer =()=> {
        })
      }, [categoryId])
    
-     const onAdd = () => {
-       console.log ("Agregado al carrito")
      
-     }
   
   return (
       <div className="ItemListContainer">
         <ItemList products= {products}/>
-        <ItemCount onAdd = {onAdd} stock = {10} initial={1}/> 
 
       </div>
     )
