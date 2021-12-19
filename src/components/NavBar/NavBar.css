@@ -37,6 +37,22 @@
 
 }
 
+.link2 {
+  
+  text-align: center;
+  text-decoration: none;
+  margin: 10px;
+  color:#18cbc4;
+  font: 21px;
+  border-color:#18cbc4 solid 2!important;
+
+}
+
+.link2:hover {
+  color:#9d9ad6;
+
+}
+
 .bg-dark2 { 
 background-color:#18cbc4 !important;
 }

@@ -37,7 +37,7 @@ const ItemDetail= ({product}) => {
          </div>
          
          <div className="margin-top"> 
-            <Link to={"/"} className="btndetalle">Ver otros productos </Link>
+            <Link to={"/"} className="link2">Ver otros productos > </Link>
          </div>
          
           <div className="margin-top">
