@@ -3,13 +3,14 @@ import "./NavBar/NavBar.css";
 import { Link } from "react-router-dom";
 //import {useState } from "react";
 import ItemCount from "./ItemCount";
-import {CartContext} from "./components/CartContext/CartContext"
+import {CartContext} from "./CartContext/CartContext"
 
 
 const ItemDetail= ({product}) => {
   const [stock, setStock] = useState(0);
 
   const {addItem} = useContext (CartContext);
+
   const [buy, setBuy]= useState (false);
   const [quantity, setQuantity]= useState (0);
 
@@ -54,7 +55,7 @@ const ItemDetail= ({product}) => {
          </div>
          
           <div className="margin-top">
-           {!buy ? <ItemCount onAdd={onAdd} stock={stock} initial={1} />: 
+           {!buy ? <ItemCount onAdd = {(quantity) => btnBuy (quantity)} />: 
            <button onClick={btnPurchase}> <Link to= "/cart"> Comprar </Link></button>
            }
            </div>

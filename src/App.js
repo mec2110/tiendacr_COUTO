@@ -9,6 +9,7 @@ import Footer from "./components/footer/Footer";
 //import React, {useState } from "react";
 import "./components/NavBar/NavBar.css";
 import {BrowserRouter, Switch, Route} from"react-router-dom";
+import CartContextProvider from './components/CartContext/CartContext';
 
 const App = () => {
  
