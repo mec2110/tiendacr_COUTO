@@ -3,11 +3,16 @@ import "./NavBar/NavBar.css";
 import { Link } from "react-router-dom";
 //import {useState } from "react";
 import ItemCount from "./ItemCount";
+import {CartContext} from "./components/CartContext/CartContext"
 
 
 const ItemDetail= ({product}) => {
-  const [stock, setStock] = useState(0)
-    
+  const [stock, setStock] = useState(0);
+
+  const {addItem} = useContext (CartContext);
+  const [buy, setBuy]= useState (false);
+  const [quantity, setQuantity]= useState (0);
+
   const onAdd = (quantityToAdd) => {
     console.log("Agregado al carrito la cantidad de: " + quantityToAdd)
     console.log("Stock inicial: " + product.stock)
@@ -19,6 +24,14 @@ const ItemDetail= ({product}) => {
     setStock(product.stock)
     console.log("STOCK: " + stock)
   })
+
+  const btnBuy = (quantity) => {
+    setBuy (true);
+    setQuantity(quantity);
+  }
+  const btnPurchase = () => {
+    addItem (product, quantity);
+  }
 
   return(
       <div className="container"> 
@@ -37,12 +50,14 @@ const ItemDetail= ({product}) => {
          </div>
          
          <div className="margin-top"> 
-            <Link to={"/"} className="link2">Ver otros productos > </Link>
+            <Link to={"/"} className="link2"> Ver otros productos </Link>
          </div>
          
           <div className="margin-top">
-            <ItemCount onAdd={onAdd} stock={stock} initial={1} />
-          </div>
+           {!buy ? <ItemCount onAdd={onAdd} stock={stock} initial={1} />: 
+           <button onClick={btnPurchase}> <Link to= "/cart"> Comprar </Link></button>
+           }
+           </div>
 
       </div>
   )

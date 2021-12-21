@@ -83,3 +83,14 @@ Permite sumar o restar productos
 ### Nav.css
 
 Contiene todas las Clases Css que editan al resto de los archivos (todos).
+
+## Proyecto
+
+Se trata de una tienda ecommerce para el proyecto del curso de REACT de CODER HOUSE.
+En este caso, es la tienda virtuald e CURIOUS RABBIT, marca que vende cuadernos, vinilos, posters, y otros productos de diseño de series, películos y dibujos animados.
+
+## About me
+
+Soy Ma. Eugenia Couto, Diseñadora Gráfica Multimedial Sr recibida en la Universidad de Morón ("han pasado 84 años"). Actualmente soy Digital Designer en una fintech en expansión y desempeño tareas de UX UI.
+Pueden conocer más sobre mis trabajos acá: https://www.behance.net/MECdesign
+Perfil profesional: https://www.linkedin.com/in/mar%C3%ADa-eugenia-couto/

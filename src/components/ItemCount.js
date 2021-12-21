@@ -8,7 +8,7 @@ const ItemCount = ({stock, initial, onAdd}) => {
     //const [stock,setStock] = useState ()
 
     const sumar = () => {
-        //Stock hasta 10
+        //Stock hasta lo que estè disponible en el array de products
         if (count < stock){
             setCount (count + 1);
         
@@ -23,13 +23,7 @@ const ItemCount = ({stock, initial, onAdd}) => {
         }
     }
 
-    /*const quantity = () => {
-        //Stock hasta 1
-        if (stock=0){
-            setCount ("No hay stock");
-        
-        }
-    }*/
+
 
 
 

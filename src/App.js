@@ -3,7 +3,7 @@ import './App.css';
 import NavBar from "./components/NavBar/NavBar";
 import ItemListContainer from "./components/ItemListContainer";
 import ItemDetailContainer from "./components/ItemDetailContainer";
-//import ItemCount from "./components/ItemCount";
+import ItemCount from "./components/ItemCount";
 import Cart from "./components/Cart";
 import Footer from "./components/footer/Footer";
 //import React, {useState } from "react";
@@ -13,8 +13,9 @@ import {BrowserRouter, Switch, Route} from"react-router-dom";
 const App = () => {
  
   return (
+    <CartContextProvider>
     <div className="App"> 
-      
+     
     <BrowserRouter> 
       <header>
         <NavBar/>
@@ -25,7 +26,7 @@ const App = () => {
         </div>
 
         <div>
-          <h1> Sincronizando ItemCount</h1>
+          <h1> CartContext</h1>
           <Switch>
             <Route exact path="/">
                <ItemListContainer/>
@@ -44,6 +45,10 @@ const App = () => {
 		      		<Cart />
 		      	</Route>
 
+            <Route exact path='/count'>
+		      		<ItemCount />
+		      	</Route>
+
           </Switch>
         </div> 
       </body>
@@ -51,9 +56,9 @@ const App = () => {
       <Footer />
      
     </BrowserRouter> 
-
-    
+  
     </div>
+    </CartContextProvider>
   );
 }
 
