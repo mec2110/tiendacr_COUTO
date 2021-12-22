@@ -1,7 +1,6 @@
-import  React, {useState, useEffect} from "react";
+import  React, {useState, useEffect, useContext} from "react";
 import "./NavBar/NavBar.css";
 import { Link } from "react-router-dom";
-//import {useState } from "react";
 import ItemCount from "./ItemCount";
 import {CartContext} from "./CartContext/CartContext"
 

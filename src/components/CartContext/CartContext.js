@@ -42,8 +42,8 @@ const removeItem = (item) => {
 console.log(item);
 }
 
-const cleanCart = () => {
-    console.log(item);
+const cleanCart = (item) => {
+  console.log(item);
 }
 
  return (
