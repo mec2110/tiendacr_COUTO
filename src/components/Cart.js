@@ -10,7 +10,24 @@ const Cart =() => {
     
     return(
         <div className="margin-top">
-        <h1 className="titulo"> Próximamente cart </h1>
+            <ul>
+                <li> Imagen</li>
+                <li>Descripción</li>
+                <li>Cantidad</li>
+            </ul>
+            {cart.map (product => {
+                return <ul>
+                      <li>
+                      <img src={product.item.img} alt={product.name} className="itemImg"/>
+                      </li>
+                      <li>
+                          {product.item.description}
+                      </li>
+                      <li>
+                          {product.quantity}
+                      </li>
+                </ul>
+            })} <h1 className="titulo"> Próximamente cart </h1>
         </div>
     )
 }

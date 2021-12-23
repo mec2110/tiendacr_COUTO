@@ -2,10 +2,14 @@ import logoCR from './logoCR.png';
 import "./NavBar.css";
 import CartWidget from "./CartWidget";
 import {Link} from "react-router-dom";
-
+import {useState } from "react";
+import {CartContext} from "./CartContext/CartContext"
 
 
 const NavBar = () => {
+
+  const {cart, TotalQuantity} = useContext (CartContext);
+
         return (
 
   <nav className="navbar navbar-expand-sm navbar-dark bg-dark2">
@@ -32,7 +36,7 @@ const NavBar = () => {
         </li>  
       </ul>
       </div>
-      <div> <CartWidget/> </div>
+      <div> <Link Link to= "/cart"><CartWidget/> </Link> {TotalQuantity} </div>
     </div>
   </nav>
   

@@ -7,6 +7,7 @@ export const CartContext = createContext();
 
 const CartContextProvider = ({context}) => {
 const [cart, setCart] = useState([]);
+const [TotalQuantity , setTotalQuantity]= useState (0)
 
 const getquantity = () => {
     let subTotal = 0;
@@ -31,6 +32,8 @@ const addItem = (product, quantity) => {
     } else {
         setCart([...cart, {item: product, TotalQuantity: quantity}]);
     }
+
+    addQuantity();
 }
 
 const isInCart = (item) => {
@@ -52,6 +55,15 @@ const cleanCart = (quantity) => {
   const items = list.filter ((e)=>{
     return parseInt (e.id) !== parseInt (quantity)
 })
+}
+
+const addQuantity = () => {
+    let subTotal = 0;
+   cart.forEach(i=>{
+        subTotal += i.quantity
+   })
+
+   setTotalQuantity (subTotal)
 }
 
  return (
