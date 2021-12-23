@@ -38,12 +38,20 @@ const isInCart = (item) => {
     return cart.some(product => product.item === item );
 }
 
-const removeItem = (item) => {
+const removeItem = (itemId) => {
 console.log(item);
+const item = list.filter ((e)=>{
+    return parseInt (e.id) !== parseInt (itemId)
+})
 }
+updateCounter ();
 
-const cleanCart = (item) => {
-  console.log(item);
+
+const cleanCart = (quantity) => {
+  console.log(quantity);
+  const items = list.filter ((e)=>{
+    return parseInt (e.id) !== parseInt (quantity)
+})
 }
 
  return (
