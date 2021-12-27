@@ -5,7 +5,7 @@ import "./CartContext.css";
 
 export const CartContext = createContext();
 
-const CartContextProvider = ({context}) => {
+const CartContextProvider = ({children}) => {
 const [cart, setCart] = useState([]);
 
 const getquantity = () => {
@@ -50,7 +50,7 @@ const cleanCart = (item) => {
      <CartContext.Provider value ={{
          cart, getquantity,  addItem, removeItem, cleanCart
      }} >
-         {context}
+         {children}
     </CartContext.Provider>
  )
 

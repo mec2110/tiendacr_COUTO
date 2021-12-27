@@ -13,12 +13,12 @@ const ItemDetail= ({product}) => {
   const [buy, setBuy]= useState (false);
   const [quantity, setQuantity]= useState (0);
 
-  const onAdd = (quantityToAdd) => {
-    console.log("Agregado al carrito la cantidad de: " + quantityToAdd)
-    console.log("Stock inicial: " + product.stock)
-    product.stock = product.stock - quantityToAdd
-    setStock(product.stock)
-  }
+ // const onAdd = (quantityToAdd) => {
+   // console.log("Agregado al carrito la cantidad de: " + quantityToAdd)
+    //console.log("Stock inicial: " + product.stock)
+    //product.stock = product.stock - quantityToAdd
+    //setStock(product.stock)
+  //}
 
   useEffect(()=>{
     setStock(product.stock)
@@ -55,7 +55,7 @@ const ItemDetail= ({product}) => {
          
           <div className="margin-top">
            {!buy ? <ItemCount onAdd = {(quantity) => btnBuy (quantity)} />: 
-           <button onClick={btnPurchase}> <Link to= "/cart"> Comprar </Link></button>
+           <button onClick={btnPurchase} className="btn-itemcount3"> <Link to= "/cart"> Comprar </Link></button>
            }
            </div>
 
