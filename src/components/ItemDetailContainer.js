@@ -1,23 +1,30 @@
 import React, { useEffect, useState } from "react";
 import ItemDetail from "./ItemDetail";
-import { getProductById } from "./products";
+//import { getProductById } from "./products";
 import "./NavBar/NavBar.css";
 import { useParams} from "react-router-dom";
+import { getDoc, doc} from firebase/Firestore;
+import {db} from "../../services/firebase";
+
 
 const ItemDetailContainer = ()=> {
 	const [product, setProduct] = useState ({});
-
-	const { paramId } = useParams()
+	const [loading, setLoading] = useState (true);
+    const { paramId } = useParams()
 
   console.log( paramId)
 
 	useEffect(() => {
-		getProductById(paramId).then(item => {
-			setProduct(item) // un solo item en detalle segùn la id
-		}).catch(err => {
-			console.log(err)
-		})
-	
+		setLoading (true)
+			getDoc (doc(db, "Items", paramId)).then((QuerySnapshot) => {
+				const product ={id:QuerySnapshot.id,...QuerySnapshot.data()}
+				setProduct(product)
+			}).catch((error)=> {
+				console.log("Error searching item",error)
+			}).finally(() => {
+				setLoading (false)
+			}) 
+		
 		return (() => {
 			setProduct()
 		})

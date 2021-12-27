@@ -2,6 +2,8 @@ import Item from "./Item";
 import React, { useEffect, useState } from "react";
 import { getCategories } from "./products";
 import { Link } from "react-router-dom";
+import {db} from "../../services/firebase";
+import {getDocs, collection, QuerySnapshot} from "firebase/firestore"
 
 
 
@@ -10,14 +12,17 @@ import { Link } from "react-router-dom";
 const ItemList = ({products,category}) =>{
   
   const [categories,setCategories] = useState ([])
-
+const []
   useEffect(()=>{
-    getCategories().then(categories => {
+    getDocs(collection(db, "Categories")).then((QuerySnapshot) =>{
+      const categories = QuerySnapshot.docs.map (doc => {
+        return {id: doc.id, ...doc.data()}
+      })
+      console.log(categories)
       setCategories(categories)
     })
-       },[])
-       console.log(categories)
-
+  },[])
+       
    return (
 
         <div>

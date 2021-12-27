@@ -84,6 +84,9 @@ Permite sumar o restar productos
 
 Contiene todas las Clases Css que editan al resto de los archivos (todos).
 
+## Archivo env
+contiene toda la informaciòn del js firebase.
+
 ## Proyecto
 
 Se trata de una tienda ecommerce para el proyecto del curso de REACT de CODER HOUSE.
