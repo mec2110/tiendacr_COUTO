@@ -6,11 +6,11 @@ import {CartContext} from "./CartContext/CartContext"
 
 
 const ItemDetail= ({product}) => {
-  const [stock, setStock] = useState(0);
+  //const [stock, setStock] = useState(0);
 
   const {addItem} = useContext (CartContext);
-
   const [buy, setBuy]= useState (false);
+
   const [quantity, setQuantity]= useState (0);
 
  // const onAdd = (quantityToAdd) => {
@@ -20,10 +20,10 @@ const ItemDetail= ({product}) => {
     //setStock(product.stock)
   //}
 
-  useEffect(()=>{
-    setStock(product.stock)
-    console.log("STOCK: " + stock)
-  })
+ //useEffect(()=>{
+   // setStock(product.stock)
+  //  console.log("STOCK: " + stock)
+  //})
 
   const btnBuy = (quantity) => {
     setBuy (true);
@@ -54,7 +54,7 @@ const ItemDetail= ({product}) => {
          </div>
          
           <div className="margin-top">
-           {!buy ? <ItemCount onAdd = {(quantity) => btnBuy (quantity)} />: 
+           {!buy ? <ItemCount stock = {product.stock} onAdd = {(quantity) => btnBuy (quantity)} />: 
            <button onClick={btnPurchase} className="btn-itemcount3"> <Link to= "/cart"> Comprar </Link></button>
            }
            </div>

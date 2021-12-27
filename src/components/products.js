@@ -1,6 +1,6 @@
 
 const products = [
-    { id:"1", name:"Vinilo Harry Potter", category:"vinilo",  price: 500,img:"https://d22fxaf9t8d39k.cloudfront.net/9917bde946b82f5d94cd4593a3864e6a2d383e032bd13203fc09db0c3ad8a7f243531.jpeg", description: "Vinilo Harry Potter 1m. Disponible en negro, rojo y azul. Listo para colocar.",stock:"10",},
+    { id:"1", name:"Vinilo Harry Potter", category:"vinilo" , price: 500,img:"https://d22fxaf9t8d39k.cloudfront.net/9917bde946b82f5d94cd4593a3864e6a2d383e032bd13203fc09db0c3ad8a7f243531.jpeg", description: "Vinilo Harry Potter 1m. Disponible en negro, rojo y azul. Listo para colocar.",stock:"10",},
     { id:"2", name:"Vinilo Stranger Things", category:"vinilo",price: 500,img:"https://d22fxaf9t8d39k.cloudfront.net/78c87ea9bc6f832808e2cf04a0b302abdf09b22138b16a10ea3914c19ad6de5743531.jpeg",description: "Vinilo Stranger Things 1m.  Disponible en negro, rojo y azul. Listo para colocar.",stock:"2",},
     { id:"3", name:"Vinilo Dragon Ball Z",category:"vinilo", price: 500,img:"https://d22fxaf9t8d39k.cloudfront.net/49313c7a44e88d6b43dcbefcdb55b65b6d839a87fedcfb6d146f83270de81b0943531.jpeg", description:"Vinilo Dragon ball Z 1m.  Disponible en negro, rojo y azul. Listo para colocar.",stock:"5",},
     { id:"4", name:"Vinilo Spiderman", category:"vinilo",  price: 500,img:"https://d22fxaf9t8d39k.cloudfront.net/37378f32d210b1e51cb9133c654d42c9dcc9ce6f5f365250f9798b795e10bb6e43531.jpeg",description:"Vinilo Dragon ball Z 1m.  Disponible en negro, rojo y azul. Listo para colocar.",stock:"10",},
@@ -19,6 +19,9 @@ const products = [
 const categories = [
     {id:"vinilo", description: "Vinilo"},
     {id:"cuaderno", description: "Cuaderno"},
+    {id:"peliculas", description: "Peliculas"},
+    {id:"anime", description: "Anime"},
+    {id:"video juegos", description: "Video Juegos"},
    
 ]
 
