@@ -27,7 +27,7 @@ const App = () => {
         </div>
 
         <div>
-          <h1> CartContext</h1>
+          <h1> CartView </h1>
           <Switch>
             <Route exact path="/">
                <ItemListContainer/>
