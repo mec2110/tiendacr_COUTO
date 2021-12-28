@@ -97,6 +97,11 @@ border-radius:5px;
 border:0;
 }
 
+.getquantity{
+  color:#fee69c;
+   padding: 10px;
+}
+
 .count{
 color:#9d9ad6;
 font-weight: 900;
@@ -199,4 +204,20 @@ font-size: 10px;
 
 .margin-top{
   margin-top: 10px !important;
+}
+
+.table {
+  --bs-table-bg: transparent;
+  --bs-table-accent-bg: transparent;
+  --bs-table-striped-color: #18cbc4!important;
+  --bs-table-striped-bg: rgba(0, 0, 0, 0.05);
+  --bs-table-active-color: #18cbc4 !important;
+  --bs-table-active-bg: rgba(0, 0, 0, 0.1);
+  --bs-table-hover-color: #18cbc4 !important;
+  --bs-table-hover-bg: rgba(0, 0, 0, 0.075);
+  width: 100%;
+  margin-bottom: 1rem;
+  color: #18cbc4 !important;
+  vertical-align: top;
+  border-color: #ffcb08 !important;
 }
