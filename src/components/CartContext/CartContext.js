@@ -6,28 +6,29 @@ import "./CartContext.css";
 export const CartContext = createContext();
 
 const CartContextProvider = ({children}) => {
-const [cart, setCart] = useState([]);
+const [cart, setCart] = useState(0);
 
 const getquantity = () => {
     let subTotal = 0;
     cart.forEach(i=> {
-        subTotal += i.TotalQuantity
+        console.log(i);
+        subTotal += i.quantity
     })
     return subTotal;
 }
 
 
 
-const addItem = (product, quantity) => {
+const addItem = (product, Totalquantity) => {
 const flag = isInCart(product);
 if (flag) {
         let productRepeat = cart.find (i => i.item === product);
-        productRepeat.TotalQuantity += quantity;
+        productRepeat.quantity += Totalquantity;
 
         let cartNoRepeat = cart.filter (i => i.item !== product); //todos los elementos que no sean el producto en cuestiòn
         setCart([...cartNoRepeat, productRepeat]);
     } else {
-        setCart([...cart, {item: product, TotalQuantity: quantity}]);
+        setCart([...cart, {item: product, quantity: Totalquantity}]);
     }
 }
 

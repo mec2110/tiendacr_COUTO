@@ -1,4 +1,4 @@
-import  React, {useState, useEffect, useContext} from "react";
+import  React, {useState, useContext} from "react";
 import "./NavBar/NavBar.css";
 import { Link } from "react-router-dom";
 import ItemCount from "./ItemCount";
