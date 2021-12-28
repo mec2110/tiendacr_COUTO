@@ -3,8 +3,8 @@ import ItemDetail from "./ItemDetail";
 //import { getProductById } from "./products";
 import "./NavBar/NavBar.css";
 import { useParams} from "react-router-dom";
-import { getDoc, doc} from firebase/Firestore;
-import {db} from "../../services/firebase";
+import { getDoc, doc} from "firebase/firestore";
+import { db } from "../services/firebase";
 
 
 const ItemDetailContainer = ()=> {
