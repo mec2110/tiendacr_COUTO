@@ -4,7 +4,7 @@ import ItemList from "./ItemList";
 import "./NavBar/NavBar.css";
 //import { getProducts } from "./products";
 import { useParams} from "react-router-dom";
-import { db } from "../../services/firebase";
+import { db } from "../services/firebase";
 import { collection, getDocs, query, where } from "firebase/firestore";
 
 
