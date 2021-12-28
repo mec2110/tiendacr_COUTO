@@ -40,7 +40,7 @@ const NavBar = () => {
       </div>
       <div> 
       <Link to = "/cart"><CartWidget/></Link>
-         <span>{ getquantity()}</span>  
+         <span className="getquantity">{ getquantity()}</span>  
       </div>
 
     </div>
@@ -50,5 +50,3 @@ const NavBar = () => {
 }
 
 export default NavBar
-
-/* <img src={logoCR} className="App-logo" alt="logo2"/> */
