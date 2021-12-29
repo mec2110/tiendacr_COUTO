@@ -6,7 +6,7 @@ import "./CartContext.css";
 export const CartContext = createContext();
 
 const CartContextProvider = ({children}) => {
-const [cart, setCart] = useState(0);
+const [cart, setCart] = useState([]);
 
 const getquantity = () => {
     let subTotal = 0;
