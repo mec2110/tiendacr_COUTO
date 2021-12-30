@@ -3,8 +3,8 @@ import "./NavBar/NavBar.css";
 
 
 const ItemCount = ({stock, initial, onAdd}) => {
-
-    const [count, setCount] = useState (initial);
+     
+    const [count, setCount] = useState (initial=1);
     //const [stock,setStock] = useState ()
 
     const sumar = () => {
@@ -16,21 +16,18 @@ const ItemCount = ({stock, initial, onAdd}) => {
     }
 
     const restar = () => {
-        //Stock hasta 1
+        
         if (count > initial){
             setCount (count - 1);
         
         }
     }
 
-
-
-
-
-    return (
+return (
         <div>
             <div>
-                <button className="btn-itemcount1" onClick={sumar}> + </button> <span className="count"> {count} </span>
+                <button className="btn-itemcount1" onClick={sumar}> + </button> 
+                <span className="count"> {count} </span>
                 <button className="btn-itemcount2" onClick={restar}> - </button>
             </div>
             <div>
