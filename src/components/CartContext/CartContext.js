@@ -44,8 +44,7 @@ setCart (removeFromCart);
 } 
 
 const cleanCart = (products) => {
-    let cleanAllCart = cart.filter (cart =>{ return cart.item.id !== products});
-    setCart (cleanAllCart);
+    setCart ([]);
 }
 
  return (
