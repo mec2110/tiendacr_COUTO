@@ -29,7 +29,7 @@ if (flag) {
         setCart([...cartNoRepeat, productRepeat]);
     } else {
         setCart([...cart, {item: product, quantity: Totalquantity}]);
-    }
+    } getquantity ([]);
 }
 
 const isInCart = (item) => {
@@ -37,14 +37,15 @@ const isInCart = (item) => {
     return cart.some(products => products.item === item );
 }
 
-const removeItem = (products) => {
+const removeItem = (id) => {
 
-let removeFromCart = cart.filter (i => i.item !== products);
-setCart ([removeFromCart]);
-}
+let removeFromCart = cart.filter (i =>{ return i.item.id !== id});
+setCart (removeFromCart);
+} 
 
-const cleanCart = () => {
- setCart ([]);
+const cleanCart = (products) => {
+    let cleanAllCart = cart.filter (cart =>{ return cart.item.id !== products});
+    setCart (cleanAllCart);
 }
 
  return (
