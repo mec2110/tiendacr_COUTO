@@ -14,8 +14,8 @@ const ItemList = ({products}) =>{
   const [Categories,setCategories] = useState ([])
 
   useEffect(()=>{
-    getDocs(collection(db, "Categories")).then((QuerySnapshot) =>{
-      const Categories = QuerySnapshot.docs.map (doc => {
+    getDocs(collection(db, "Categories")).then((querySnapshot) =>{
+      const Categories = querySnapshot.docs.map (doc => {
         return {id: doc.id, ...doc.data()}
       })
       console.log(Categories)

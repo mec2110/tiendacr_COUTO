@@ -43,9 +43,8 @@ let removeFromCart = cart.filter (i =>{ return i.item.id !== id});
 setCart (removeFromCart);
 } 
 
-const cleanCart = (products) => {
-    let cleanAllCart = cart.filter (cart =>{ return cart.item.id !== products});
-    setCart (cleanAllCart);
+const cleanCart = () => {
+    setCart ([]);
 }
 
  return (
