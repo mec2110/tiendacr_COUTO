@@ -1,12 +1,30 @@
-import  React, {useContext} from "react";
+import  React, {useState, useEffect,useContext} from "react";
 import "./NavBar/NavBar.css";
+import { Link } from "react-router-dom";
 import {CartContext} from "./CartContext/CartContext"
+import { getProducts } from "./products";
 
 
 
-const Cart =(product) => {
+const Cart =() => {
     const {cart,removeItem,cleanCart} = useContext (CartContext);
-    
+    let total = 0;
+   // const [total, setTotal] = useState(0);
+ 
+ 
+// useEffect(() => {
+ //   const handlesumar = () => {
+ //     const sumar = cart.map((price) => parseFloat(price.total))
+  //      .reduce((previous, current) => {
+   //       return previous + current;
+  //      }, 0);
+  //    setTotal(sumar);
+ 
+ //   };
+ 
+  //  handlesumar();
+ 
+  //});
     return(
         <table class="table table-striped">
             <thead>
@@ -21,10 +39,11 @@ const Cart =(product) => {
             </thead>
             <tbody>
         {cart.map(product => {
+            total += product.quantity * product.price
                         return <tr>
                             <td> <img src={product.item.img} alt={product.name} className="itemImg"/></td>
                             <td className="datos"> {product.item.description} </td>
-                            <td className="datos" > Total: {product.quantity} </td>
+                            <td className="datos" > {product.quantity} unid. </td>
                             <td className="datos" > $ {product.item.price} </td>
                             <td className="datos" >  ${product.item.price * product.quantity}</td>
                             <td> <button className="btn-itemcount1" onClick={() => removeItem (product.item.id)}> X </button></td>
@@ -36,10 +55,11 @@ const Cart =(product) => {
             <tbody className="datos">
                 <span>
             <div > TOTAL A ABONAR: </div>
-            <div> ${product.price * product.quantity} </div>
+            <div> ${total} </div>
             <div>
             <button className="btn-itemcount1" onClick={cleanCart}> Cancelar compra </button> 
-             <button className="btn-itemcount1" onClick={cart}> Confirmar Compra </button> 
+             <button className="btn-itemcount1" onClick={cart}> Confirmar Compra </button>
+             <button className="btn-itemcount1"> <Link to={"/"} className="link3">Seguir comprando </Link> </button>
              </div>
              </span>
             </tbody>

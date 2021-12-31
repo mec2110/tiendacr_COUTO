@@ -53,6 +53,16 @@
 
 }
 
+.link3 {
+  display:inline-flex;
+  text-align: center;
+  text-decoration: none;
+  list-style-type: none;
+  color:#fee69c;
+  font: 21px;
+
+}
+
 .bg-dark2 { 
 background-color:#18cbc4 !important;
 }

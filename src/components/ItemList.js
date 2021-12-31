@@ -11,9 +11,10 @@ import { getDocs, collection } from "firebase/firestore"
 
 const ItemList = ({products}) =>{
   
-  const [Categories,setCategories] = useState ([])
+  const [categories,setCategories] = useState ([])
 
   useEffect(()=>{
+    
     getDocs(collection(db, "Categories")).then((querySnapshot) =>{
       const Categories = querySnapshot.docs.map (doc => {
         return {id: doc.id, ...doc.data()}
@@ -28,7 +29,7 @@ const ItemList = ({products}) =>{
         <div>
 
         <div className="margin-top"> <p>Categorías:</p>
-          {Categories.map(cat => <Link key={cat.id} className="btnfiltro" to = {`/category/${cat.id}`}> {cat.description} </Link> )}
+          {categories.map(cat => <Link key={cat.id} className="btnfiltro" to = {`/category/${cat.id}`}> {cat.description} </Link> )}
         </div>
           
         <ul>

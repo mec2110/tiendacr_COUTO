@@ -55,7 +55,7 @@ const ItemDetail= ({product}) => {
          
           <div className="margin-top">
            {!buy ? <ItemCount stock = {product.stock} onAdd = {(quantity) => btnBuy (quantity)} />: 
-           <button onClick={btnPurchase} className="btn-itemcount3"> <Link to= "/cart"> Comprar </Link></button>
+           <button onClick={btnPurchase} className="btn-itemcount3"> <Link className="link3" to= "/cart"> Comprar </Link></button>
            }
            </div>
 

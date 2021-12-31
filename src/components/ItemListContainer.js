@@ -20,9 +20,9 @@ const ItemListContainer =()=> {
   useEffect(() => {
     if (!categoryId) {
       setLoading(true)
-      getDocs(collection(db, "Items")).then((QuerySnapshot) => {
-      console.log(QuerySnapshot)
-      const products = QuerySnapshot.docs.map (doc => {
+      getDocs(collection(db, "Items")).then((querySnapshot) => {
+      console.log(querySnapshot)
+      const products = querySnapshot.docs.map (doc => {
        console.log(doc)
        return { id:doc.id,...doc.data()}
      })
@@ -35,9 +35,9 @@ const ItemListContainer =()=> {
   } else{
 
     setLoading(true)
-    getDocs(query(collection(db, "Items"), where ("category", "==","categoryId"))).then((QuerySnapshot) => {
-      console.log(QuerySnapshot)
-      const products = QuerySnapshot.docs.map (doc => {
+    getDocs(query(collection(db, "Items"), where ("category", "==",categoryId))).then((querySnapshot) => {
+      console.log(querySnapshot)
+      const products = querySnapshot.docs.map (doc => {
        console.log(doc)
        return { id:doc.id,...doc.data()}
      })
