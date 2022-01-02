@@ -2,29 +2,14 @@ import  React, {useState, useEffect,useContext} from "react";
 import "./NavBar/NavBar.css";
 import { Link } from "react-router-dom";
 import {CartContext} from "./CartContext/CartContext"
-import { getProducts } from "./products";
+//import { getProducts } from "./products";
 
 
 
 const Cart =() => {
     const {cart,removeItem,cleanCart} = useContext (CartContext);
-    let total = 0;
-   // const [total, setTotal] = useState(0);
- 
- 
-// useEffect(() => {
- //   const handlesumar = () => {
- //     const sumar = cart.map((price) => parseFloat(price.total))
-  //      .reduce((previous, current) => {
-   //       return previous + current;
-  //      }, 0);
-  //    setTotal(sumar);
- 
- //   };
- 
-  //  handlesumar();
- 
-  //});
+    let total= 0;
+
     return(
         <table class="table table-striped">
             <thead>
@@ -39,7 +24,8 @@ const Cart =() => {
             </thead>
             <tbody>
         {cart.map(product => {
-            total += product.quantity * product.price
+                               total += product.item.price * product.quantity
+
                         return <tr>
                             <td> <img src={product.item.img} alt={product.name} className="itemImg"/></td>
                             <td className="datos"> {product.item.description} </td>
@@ -54,6 +40,7 @@ const Cart =() => {
             </tbody>
             <tbody className="datos">
                 <span>
+                    
             <div > TOTAL A ABONAR: </div>
             <div> ${total} </div>
             <div>
