@@ -3,12 +3,77 @@ import "./NavBar/NavBar.css";
 import { Link } from "react-router-dom";
 import {CartContext} from "./CartContext/CartContext"
 //import { getProducts } from "./products";
-
+import {db} from "../services/firebase";
+import {addDoc, collection, getDocs} from "firebase/firestore";
+import {updateDoc, doc, Timestamp, writeBatch} from "firebase/firestore";
 
 
 const Cart =() => {
     const {cart,removeItem,cleanCart} = useContext (CartContext);
     let total= 0;
+    const [processingOrder, setProcessingOrder]= useState(false)
+    const [contact, setContact]= useState ({
+        phone:"",
+        address:"",
+        comment:"",
+    })
+    const contactFormRef = useRef ()
+
+    const confirmOrder = () => {
+        setProcessingOrder(true)
+
+        const objOrder = {
+            buyer: { email: contact.mail, nombre: contact.name },
+            items: cart,
+            date: date,
+            total: total(),
+        };
+
+const batch = writeBatch(db)
+const outOfStock = []
+
+objOrder.items.forEach((product) => {
+    getDocs(doc (db, "Items", product.id)).then((documentSnapShot) => {
+        if(documentSnapShot.data().stock >= product.quantity) {
+            batch.update(doc(db, "Items", documentSnapShot.id), {
+                stock:documentSnapShot.data().stock - product.quantity,
+            });
+        } else {
+            outOfStock.push ({id: documentSnapShot.id, ...documentSnapShot.data() });
+        }
+    });
+});
+
+if (outOfStock.length === 0) {
+    addDoc(collection (db, "order"), objOrder).then(({id}) => {
+        batch.commit().then(() => {
+           console.log (`El nùmero de su compra es  ${doc.id}`)
+        })
+    }).catch((error)=> {
+        console.error (`error`);
+    }).finally(() => {
+        setTimeout(() => {
+            setProcessingOrder(false);
+            cleanCart();
+            
+        },2000);
+    });
+}
+   
+    }
+
+    if(processingOrder) {
+        return <h1> se está procesando su orden</h1>
+    }
+
+    if(products.length === 0) {
+        return (
+            <div>
+                <h1> Cart </h1>
+                <h2> No hay productos en su carrito </h2>
+            </div>
+        )
+    }
 
     return(
         <table class="table table-striped">
