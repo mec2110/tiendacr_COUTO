@@ -4,50 +4,58 @@ import { Link } from "react-router-dom";
 import {CartContext} from "./CartContext/CartContext"
 //import { getProducts } from "./products";
 import {db} from "../services/firebase";
-import {addDoc, collection, getDocs} from "firebase/firestore";
-import {updateDoc, doc, Timestamp, writeBatch} from "firebase/firestore";
+import {addDoc, collection, getDoc} from "firebase/firestore";
+import {getFirestore, doc, Timestamp, writeBatch} from "firebase/firestore";
 
 
 const Cart =() => {
-    const {cart,removeItem,cleanCart} = useContext (CartContext);
+    const {cart,removeItem,cleanCart,products} = useContext (CartContext);
     let total= 0;
     const [processingOrder, setProcessingOrder]= useState(false)
     const [contact, setContact]= useState ({
         phone:"",
         address:"",
         comment:"",
+        mail:"",
+        name:"",
     })
-    const contactFormRef = useRef ()
+
+    const contactFormRef = useRef()
 
     const confirmOrder = () => {
         setProcessingOrder(true)
 
         const objOrder = {
             buyer: { email: contact.mail, nombre: contact.name },
-            items: cart,
-            date: date,
+            items: products,
             total: total(),
+            comment:contact.comment,
+            address:contact.address,
+            date: Timestamp.fromDate(new Date())
         };
 
+const updateOrder = () =>{
+    const db= getFirestore ();
+}
 const batch = writeBatch(db)
 const outOfStock = []
 
 objOrder.items.forEach((product) => {
-    getDocs(doc (db, "Items", product.id)).then((documentSnapShot) => {
+    getDoc(doc (db, "Items", product.id)).then((documentSnapShot) => {
         if(documentSnapShot.data().stock >= product.quantity) {
             batch.update(doc(db, "Items", documentSnapShot.id), {
                 stock:documentSnapShot.data().stock - product.quantity,
             });
         } else {
-            outOfStock.push ({id: documentSnapShot.id, ...documentSnapShot.data() });
+            outOfStock.push ({id: documentSnapShot.id, ...documentSnapShot.data()});
         }
     });
 });
 
 if (outOfStock.length === 0) {
-    addDoc(collection (db, "order"), objOrder).then(({id}) => {
+    addDoc(collection (db, "orders"), objOrder).then(({id}) => {
         batch.commit().then(() => {
-           console.log (`El nùmero de su compra es  ${doc.id}`)
+           console.log (`El nùmero de su compra es  ${id}`)
         })
     }).catch((error)=> {
         console.error (`error`);
@@ -110,7 +118,7 @@ if (outOfStock.length === 0) {
             <div> ${total} </div>
             <div>
             <button className="btn-itemcount1" onClick={cleanCart}> Cancelar compra </button> 
-             <button className="btn-itemcount1" onClick={cart}> Confirmar Compra </button>
+             <button className="btn-itemcount1" onClick={confirmOrder}> Confirmar Compra </button>
              <button className="btn-itemcount1"> <Link to={"/"} className="link3">Seguir comprando </Link> </button>
              </div>
              </span>
