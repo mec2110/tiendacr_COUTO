@@ -8,7 +8,7 @@ import { getDocs, collection } from "firebase/firestore"
 
 
 
-const ItemList = ({products}) =>{
+const Category = ({products}) =>{
   
   const [categories,setCategories] = useState ([])
 
@@ -27,7 +27,7 @@ const ItemList = ({products}) =>{
 
         <div>
 
-        <div className="margin-top"> <p>Filtrar por categorías:</p>
+        <div className="margin-top"> <p>Categorías:</p>
           {categories.map(cat => <Link key={cat.id} className="btnfiltro" to = {`/category/${cat.id}`}> {cat.description} </Link> )}
         </div>
           
@@ -45,4 +45,4 @@ const ItemList = ({products}) =>{
     );
 }
 
-export default ItemList
+export default Category

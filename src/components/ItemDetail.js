@@ -6,24 +6,13 @@ import {CartContext} from "./CartContext/CartContext"
 
 
 const ItemDetail= ({product}) => {
-  //const [stock, setStock] = useState(0);
 
   const {addItem} = useContext (CartContext);
   const [buy, setBuy]= useState (false);
 
   const [quantity, setQuantity]= useState ([0]);
 
- // const onAdd = (quantityToAdd) => {
-   // console.log("Agregado al carrito la cantidad de: " + quantityToAdd)
-    //console.log("Stock inicial: " + product.stock)
-    //product.stock = product.stock - quantityToAdd
-    //setStock(product.stock)
-  //}
-
- //useEffect(()=>{
-   // setStock(product.stock)
-  //  console.log("STOCK: " + stock)
-  //})
+ 
 
   const btnBuy = (quantity) => {
     setBuy (true);

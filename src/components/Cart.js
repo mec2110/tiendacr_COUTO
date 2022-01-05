@@ -2,21 +2,20 @@ import  React, {useState, useContext} from "react";
 import "./NavBar/NavBar.css";
 import { Link } from "react-router-dom";
 import {CartContext} from "./CartContext/CartContext"
-//import { getProducts } from "./products";
-import {db} from "../services/firebase";
 import {addDoc, collection, getDoc} from "firebase/firestore";
 import {getFirestore, doc, Timestamp, writeBatch} from "firebase/firestore";
+import { useNavigate } from 'react-router-dom';
+
 
 
 const Cart =() => {
     const {cart,removeItem,cleanCart,getUser} = useContext (CartContext);
     let total= 0;
-  
+    let navigate = useNavigate();
+
     const [processingOrder, setProcessingOrder]= useState(false)
-    const [form, getForm]= useState ({
-        phone:"",
+    const [form, getForm ]= useState ({
         address:"",
-        comment:"",
         mail:"",
         name:"",
     })
@@ -29,22 +28,20 @@ const Cart =() => {
         });
     };
 
-    //const contactFormRef = useRef()
 
     const confirmOrder = () => {
         getUser(form);
         setProcessingOrder(true)
 
+        const db = getFirestore();
+
         const objOrder = {
-            buyer: { email: form.mail, nombre: form.name },
+            buyer: { email: form.mail, nombre: form.name, direccion: form.address },
             items:cart,
             total: total,
-            comment:form.comment,
-            address:form.address,
             date: Timestamp.fromDate(new Date())
         };
 
-const db = getFirestore ();
 const batch = writeBatch(db)
 const outOfStock = []
 
@@ -70,7 +67,7 @@ if (outOfStock.length === 0) {
     }).finally(() => {
         setTimeout(() => {
             setProcessingOrder(false);
-           // navigate('/dashboard');
+            navigate('/dashboard');
             cleanCart();
             
         },2000);
@@ -80,7 +77,7 @@ if (outOfStock.length === 0) {
     }
 
     if(processingOrder) {
-        return <h2 className="datos"> se está procesando su orden</h2>
+        return <h2 className="datos"> Se está procesando su orden, no salga de la página...</h2>
     }
 
     if(!cart.items === 0) {
@@ -120,57 +117,66 @@ if (outOfStock.length === 0) {
 
             
             </tbody>
-            <tbody className="datos">
-                <span>
+            <tbody className="datos" >
+                <span >
                     
             <div > TOTAL A ABONAR: </div>
             <div> ${total} </div>
             <div>
+
+            {/*botones*/}
+            <button className="btn-itemcount1"> <Link to={"/"} className="link3">Seguir comprando </Link> </button>
+
             <button className="btn-itemcount1" onClick={cleanCart}> Cancelar compra </button> 
              
+            <div className="datos"> Antes de confirmar tu compra ingresá estos datos, asi podemos contactarte por mail para finalizarla:</div>
             {!processingOrder ? (
                         <form
                             method="POST"
                             onSubmit={confirmOrder}
-                            style={{ margin: '15px 0px' }}
+                            style={{ margin: '15px 0px',padding: "5px" }}
                         >
                            <input
                                 onChange={fillForm}
                                 type="text"
-                                name="nombre"
+                                name="name"
                                 placeholder="nombre"
+                                style={{ margin: '5px' }}
                             />
                              <input
                                 onChange={fillForm}
                                 type="email"
-                                name="email"
+                                name="mail"
                                 placeholder="email"
+                                style={{ margin: '5px' }}
                             />
                             <input
                                 onChange={fillForm}
                                 type="text"
-                                address="Dirección"
+                                name="address"
                                 placeholder="Ingresá tu dire"
+                                style={{ margin: '5px' }}
                             />
+                             <div>
                             <button
                                 disabled={
                                     cart?.length === 0 ||
                                     form.name === '' ||
                                     form.mail === ''||
-                                    form.address === ''
-                                }
+                                    form.address=== ''
+                             }
                             className="btn-itemcount1" >
+
                                 Confirmar Compra
                             </button>
+                            </div> 
                         </form>
-                    ):(
+                    ) : (
                         <span className="datos">
-                            Estamos generando su orden, en breve te redirigimos al
-                            Dashboard
+                            Estamos generando su orden, en breve te contàctaremos por mail para finalizar tu compra...
                         </span>
                     )}
 
-             <button className="btn-itemcount1"> <Link to={"/"} className="link3">Seguir comprando </Link> </button>
              </div>
              </span>
             </tbody>

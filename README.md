@@ -85,7 +85,21 @@ Permite sumar o restar productos
 Contiene todas las Clases Css que editan al resto de los archivos (todos).
 
 ## Archivo env
-contiene toda la informaciòn del js firebase.
+Contiene toda la informaciòn del js firebase de tal manera que no puedan emplear mi base de datos.
+
+REACT_APP_apiKey=AIzaSyBQvinc5fvs2dXjUEvDKNed9P86R03YWxs
+REACT_APP_authDomain=authDomain:cursoreact-tiendacr.firebaseapp.com
+REACT_APP_projectId= cursoreact-tiendacr
+REACT_APP_storageBucket=cursoreact-tiendacr.appspot.com
+REACT_APP_messagingSenderId=639947275206
+REACT_APP_appId=1:639947275206:web:a672903311d19c8d7290c7
+
+## Navigator
+
+Para poder navegar directamente y emplear el useNavigator, es necesario instalar:
+npm install history@5 react-router-dom@6
+
+
 
 ## Proyecto
 

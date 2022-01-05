@@ -5,7 +5,6 @@ import "./NavBar/NavBar.css";
 const ItemCount = ({stock, initial, onAdd}) => {
      
     const [count, setCount] = useState (initial=1);
-    //const [stock,setStock] = useState ()
 
     const sumar = () => {
         //Stock hasta lo que estè disponible en el array de products

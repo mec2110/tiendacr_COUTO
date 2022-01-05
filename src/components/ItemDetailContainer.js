@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import ItemDetail from "./ItemDetail";
-//import { getProductById } from "./products";
 import "./NavBar/NavBar.css";
 import { useParams} from "react-router-dom";
 import { getDoc, doc} from "firebase/firestore";

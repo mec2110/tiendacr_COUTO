@@ -6,10 +6,11 @@ import ItemDetailContainer from "./components/ItemDetailContainer";
 import ItemCount from "./components/ItemCount";
 import Cart from "./components/Cart";
 import Footer from "./components/footer/Footer";
-//import React, {useState } from "react";
 import "./components/NavBar/NavBar.css";
-import {BrowserRouter, Switch, Route} from"react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import CartContextProvider from './components/CartContext/CartContext';
+import Dashboard from './components/dashboard';
+
 
 const App = () => {
  
@@ -17,7 +18,7 @@ const App = () => {
     <CartContextProvider>
     <div className="App"> 
      
-    <BrowserRouter> 
+    <Router> 
       <header>
         <NavBar/>
       </header>
@@ -27,36 +28,37 @@ const App = () => {
         </div>
 
         <div>
-          <h1> ÙLTIMO DESAFÌO </h1>
-          <Switch>
-            <Route exact path="/">
-               <ItemListContainer/>
-            </Route>
+          <h1> ÚLTIMO DESAFÍO </h1>
+          <Routes>
 
+            <Route exact path="/" element={<ItemListContainer/>} />
             
-           <Route exact path="/category/:categoryId">
-               <ItemListContainer/>
-            </Route>
+            <Route path="/category/:categoryId"
+               element={<ItemListContainer/>} />
 
-           <Route exact path="/item/:paramId">
-             <ItemDetailContainer/>
-           </Route>
+           <Route path="/item/:paramId"
+             element={<ItemDetailContainer/>} />
+
            
-            <Route exact path='/cart'>
-		      		<Cart />
-		      	</Route>
+            <Route path='/cart'
+		      		element={<Cart />} />
 
-            <Route exact path='/count'>
-		      		<ItemCount />
-		      	</Route>
 
-          </Switch>
+            <Route path='/count'
+		      	element={	<ItemCount />} />
+
+
+            <Route path="/dashboard"	
+            element={	<Dashboard />} />
+
+           </Routes>
+          
         </div> 
       </body>
 
       <Footer />
      
-    </BrowserRouter> 
+      </Router>
   
     </div>
     </CartContextProvider>

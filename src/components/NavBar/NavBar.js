@@ -25,16 +25,12 @@ const NavBar = () => {
     <div className="collapse navbar-collapse" id="mynavbar">
       <ul className="navbar-nav me-auto">
         <li className="nav-item">
-         <Link to={"/"} className="link">Productos</Link>
+         <Link to={"/"} className="link"> Todos los productos</Link>
         </li>
+        
+        
         <li className="nav-item">
-        <Link to={"/item/2"} className="link">Detalle</Link>
-        </li>
-        <li className="nav-item">
-        <Link to={"/category"} className="link">Categorías</Link>
-        </li>
-        <li className="nav-item">
-        <Link to={"/cart"} className="link">Ver Carrito</Link>
+        <Link to={"/cart"} className="link">Mi Carrito</Link>
         </li>  
       </ul>
       </div>
