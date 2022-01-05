@@ -1,4 +1,4 @@
-import  React, {useState, useContext, useRef , useNavigate} from "react";
+import  React, {useState, useContext} from "react";
 import "./NavBar/NavBar.css";
 import { Link } from "react-router-dom";
 import {CartContext} from "./CartContext/CartContext"
@@ -11,9 +11,9 @@ import {getFirestore, doc, Timestamp, writeBatch} from "firebase/firestore";
 const Cart =() => {
     const {cart,removeItem,cleanCart,getUser} = useContext (CartContext);
     let total= 0;
-    let navigate = useNavigate();
+  
     const [processingOrder, setProcessingOrder]= useState(false)
-    const [contact, setContact]= useState ({
+    const [form, getForm]= useState ({
         phone:"",
         address:"",
         comment:"",
@@ -23,28 +23,28 @@ const Cart =() => {
 
     const fillForm = (e) => {
         const { name, value } = e.target;
-        setContact({
+        getForm({
             ...form,
             [name]: value,
         });
     };
 
-    const contactFormRef = useRef()
+    //const contactFormRef = useRef()
 
     const confirmOrder = () => {
         getUser(form);
         setProcessingOrder(true)
 
         const objOrder = {
-            buyer: { email: contact.mail, nombre: contact.name },
+            buyer: { email: form.mail, nombre: form.name },
             items:cart,
             total: total,
-            comment:contact.comment,
-            address:contact.address,
+            comment:form.comment,
+            address:form.address,
             date: Timestamp.fromDate(new Date())
         };
 
-const db= getFirestore ();
+const db = getFirestore ();
 const batch = writeBatch(db)
 const outOfStock = []
 
@@ -70,7 +70,7 @@ if (outOfStock.length === 0) {
     }).finally(() => {
         setTimeout(() => {
             setProcessingOrder(false);
-            navigate('/dashboard');
+           // navigate('/dashboard');
             cleanCart();
             
         },2000);
@@ -134,7 +134,13 @@ if (outOfStock.length === 0) {
                             onSubmit={confirmOrder}
                             style={{ margin: '15px 0px' }}
                         >
-                            <input
+                           <input
+                                onChange={fillForm}
+                                type="text"
+                                name="nombre"
+                                placeholder="nombre"
+                            />
+                             <input
                                 onChange={fillForm}
                                 type="email"
                                 name="email"
@@ -143,22 +149,23 @@ if (outOfStock.length === 0) {
                             <input
                                 onChange={fillForm}
                                 type="text"
-                                name="nombre"
-                                placeholder="nombre"
+                                address="Dirección"
+                                placeholder="Ingresá tu dire"
                             />
                             <button
                                 disabled={
                                     cart?.length === 0 ||
-                                    form.nombre === '' ||
-                                    form.email === ''
+                                    form.name === '' ||
+                                    form.mail === ''||
+                                    form.address === ''
                                 }
                             className="btn-itemcount1" >
                                 Confirmar Compra
                             </button>
                         </form>
-                    ): (
+                    ):(
                         <span className="datos">
-                            Estamos generando su orden, será redirigido al
+                            Estamos generando su orden, en breve te redirigimos al
                             Dashboard
                         </span>
                     )}
