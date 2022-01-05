@@ -1,4 +1,4 @@
-import  React, {useState, useEffect,useContext} from "react";
+import  React, {useState, useContext, useRef , useNavigate} from "react";
 import "./NavBar/NavBar.css";
 import { Link } from "react-router-dom";
 import {CartContext} from "./CartContext/CartContext"
@@ -9,8 +9,9 @@ import {getFirestore, doc, Timestamp, writeBatch} from "firebase/firestore";
 
 
 const Cart =() => {
-    const {cart,removeItem,cleanCart,products} = useContext (CartContext);
+    const {cart,removeItem,cleanCart} = useContext (CartContext);
     let total= 0;
+    let navigate = useNavigate();
     const [processingOrder, setProcessingOrder]= useState(false)
     const [contact, setContact]= useState ({
         phone:"",
@@ -20,6 +21,14 @@ const Cart =() => {
         name:"",
     })
 
+    const fillForm = (e) => {
+        const { name, value } = e.target;
+        setContact({
+            ...form,
+            [name]: value,
+        });
+    };
+
     const contactFormRef = useRef()
 
     const confirmOrder = () => {
@@ -27,21 +36,19 @@ const Cart =() => {
 
         const objOrder = {
             buyer: { email: contact.mail, nombre: contact.name },
-            items: products,
-            total: total(),
+            items:cart,
+            total: total,
             comment:contact.comment,
             address:contact.address,
             date: Timestamp.fromDate(new Date())
         };
 
-const updateOrder = () =>{
-    const db= getFirestore ();
-}
+const db= getFirestore ();
 const batch = writeBatch(db)
 const outOfStock = []
 
 objOrder.items.forEach((product) => {
-    getDoc(doc (db, "Items", product.id)).then((documentSnapShot) => {
+    getDoc(doc (db, "Items", product.item.id)).then((documentSnapShot) => {
         if(documentSnapShot.data().stock >= product.quantity) {
             batch.update(doc(db, "Items", documentSnapShot.id), {
                 stock:documentSnapShot.data().stock - product.quantity,
@@ -62,6 +69,7 @@ if (outOfStock.length === 0) {
     }).finally(() => {
         setTimeout(() => {
             setProcessingOrder(false);
+            navigate('/dashboard');
             cleanCart();
             
         },2000);
@@ -71,14 +79,14 @@ if (outOfStock.length === 0) {
     }
 
     if(processingOrder) {
-        return <h1> se está procesando su orden</h1>
+        return <h2 className="datos"> se está procesando su orden</h2>
     }
 
-    if(products.length === 0) {
+    if(!cart.items === 0) {
         return (
             <div>
-                <h1> Cart </h1>
-                <h2> No hay productos en su carrito </h2>
+                <h1 > Cart </h1>
+                <h2 className="datos"> No hay productos en su carrito </h2>
             </div>
         )
     }
@@ -118,7 +126,42 @@ if (outOfStock.length === 0) {
             <div> ${total} </div>
             <div>
             <button className="btn-itemcount1" onClick={cleanCart}> Cancelar compra </button> 
-             <button className="btn-itemcount1" onClick={confirmOrder}> Confirmar Compra </button>
+             
+            {!processingOrder ? (
+                        <form
+                            method="POST"
+                            onSubmit={confirmOrder}
+                            style={{ margin: '15px 0px' }}
+                        >
+                            <input
+                                onChange={fillForm}
+                                type="email"
+                                name="email"
+                                placeholder="email"
+                            />
+                            <input
+                                onChange={fillForm}
+                                type="text"
+                                name="nombre"
+                                placeholder="nombre"
+                            />
+                            <button
+                                disabled={
+                                    cart?.length === 0 ||
+                                    form.nombre === '' ||
+                                    form.email === ''
+                                }
+                            className="btn-itemcount1" >
+                                Confirmar Compra
+                            </button>
+                        </form>
+                    ): (
+                        <span className="datos">
+                            Estamos generando su orden, será redirigido al
+                            Dashboard
+                        </span>
+                    )}
+
              <button className="btn-itemcount1"> <Link to={"/"} className="link3">Seguir comprando </Link> </button>
              </div>
              </span>

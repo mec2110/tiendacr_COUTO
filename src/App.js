@@ -27,7 +27,7 @@ const App = () => {
         </div>
 
         <div>
-          <h1> FIREBASE ITEM1 </h1>
+          <h1> ÙLTIMO DESAFÌO </h1>
           <Switch>
             <Route exact path="/">
                <ItemListContainer/>
