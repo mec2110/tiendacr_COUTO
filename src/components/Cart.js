@@ -9,7 +9,7 @@ import {getFirestore, doc, Timestamp, writeBatch} from "firebase/firestore";
 
 
 const Cart =() => {
-    const {cart,removeItem,cleanCart} = useContext (CartContext);
+    const {cart,removeItem,cleanCart,getUser} = useContext (CartContext);
     let total= 0;
     let navigate = useNavigate();
     const [processingOrder, setProcessingOrder]= useState(false)
@@ -32,6 +32,7 @@ const Cart =() => {
     const contactFormRef = useRef()
 
     const confirmOrder = () => {
+        getUser(form);
         setProcessingOrder(true)
 
         const objOrder = {

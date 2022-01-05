@@ -7,6 +7,8 @@ export const CartContext = createContext();
 
 const CartContextProvider = ({children}) => {
 const [cart, setCart] = useState([]);
+const [userEmail, setUserEmail] = useState("");
+
 
 const getquantity = () => {
     let subTotal = 0;
@@ -17,7 +19,9 @@ const getquantity = () => {
     return subTotal;
 }
 
-
+const getUser = (form) => {
+    setUserEmail(form);
+};
 
 const addItem = (product, Totalquantity) => {
 const flag = isInCart(product);
@@ -48,7 +52,7 @@ const cleanCart = () => {
 }
 
  return (
-     <CartContext.Provider value ={{cart, getquantity, addItem, removeItem, cleanCart }} >
+     <CartContext.Provider value ={{cart, getquantity, addItem, removeItem, cleanCart,getUser,userEmail }} >
          {children}
     </CartContext.Provider>
  )
