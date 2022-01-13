@@ -13,56 +13,55 @@ import Dashboard from './components/dashboard';
 
 
 const App = () => {
- 
+
   return (
     <CartContextProvider>
-    <div className="App"> 
-     
-    <Router> 
-      <div className="header">
-        <NavBar/>
+      <div className="App">
+
+        <Router>
+          <div className="header">
+            <NavBar />
+          </div>
+          <div className="body">
+            <div>
+              <img src={portada} className="App-portada" alt="portada" />
+            </div>
+
+            <div>
+
+              <Routes>
+
+                <Route exact path="/" element={<ItemListContainer />} />
+
+                <Route path="/category/:categoryId"
+                  element={<ItemListContainer />} />
+
+
+                <Route path="/item/:paramId"
+                  element={<ItemDetailContainer />} />
+
+
+                <Route path='/cart'
+                  element={<Cart />} />
+
+
+                <Route path='/count'
+                  element={<ItemCount />} />
+
+
+                <Route path="/dashboard"
+                  element={<Dashboard />} />
+
+              </Routes>
+
+            </div>
+          </div>
+
+          <Footer />
+
+        </Router>
+
       </div>
-      <div className="body">
-        <div>
-        <img src={portada} className="App-portada" alt="portada" />
-        </div>
-
-        <div>
-         
-          <Routes>
-
-            <Route exact path="/" element={<ItemListContainer/>} />
-            
-            <Route path="/category/:categoryId"
-               element={<ItemListContainer/>} />
-
-        
-
-           <Route path="/item/:paramId"
-             element={<ItemDetailContainer/>} />
-
-           
-            <Route path='/cart'
-		      		element={<Cart />} />
-
-
-            <Route path='/count'
-		      	element={	<ItemCount />} />
-
-
-            <Route path="/dashboard"	
-            element={	<Dashboard />} />
-
-           </Routes>
-          
-        </div> 
-      </div>
-
-      <Footer />
-     
-      </Router>
-  
-    </div>
     </CartContextProvider>
   );
 }

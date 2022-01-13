@@ -254,8 +254,13 @@ margin-top: 10px;
   color:#18cbc4;
   font-weight: 900;
   font: 21px;
-   margin-top: 20px !important;
+  margin-top: 20px !important;
 }
+
+.padding{
+  padding-bottom: 20px;
+}
+
 
 
 /* Cart Widget css*/

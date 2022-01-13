@@ -1,3 +1,4 @@
+import cartEmpty from './cartEmpty.png';
 import React, { useState, useContext } from "react";
 import "./NavBar/NavBar.css";
 import { Link } from "react-router-dom";
@@ -6,7 +7,6 @@ import { addDoc, collection, getDoc } from "firebase/firestore";
 import { getFirestore, doc, Timestamp, writeBatch } from "firebase/firestore";
 import { useNavigate } from 'react-router-dom';
 import CartDetail from "./CartDetail";
-
 
 const Cart = () => {
     const { cart, cleanCart, getUser } = useContext(CartContext);
@@ -80,12 +80,22 @@ const Cart = () => {
         return <h2 className="datos"> Se está procesando su orden, no salga de la página...</h2>
     }
 
-    if (!cart.items === 0) {
+    if (cart.length === 0) {
         return (
-            <div>
-                <h1 > Cart </h1>
-                <h2 className="datos"> No hay productos en su carrito </h2>
-            </div>
+            <h2 className="datos2">
+               
+               <div  className='padding'>
+                <img src={cartEmpty}  alt="Carrito vacío" />
+                </div>
+
+                <div className="margin-top"> 
+                Hey, todavía no hay productos en tu carrito!
+                </div>
+                
+                <div className='padding'>
+                    Empezá a sumarlos  <Link to={"/"} className="link2"> 👉 acá </Link> 
+                </div>
+            </h2>
         )
     }
 
@@ -94,11 +104,11 @@ const Cart = () => {
         <div> <CartDetail />
                    
                    
-            <span>
+            <div>
                 <button className="btn-itemcount1"> <Link to={"/"} className="link3">Seguir comprando </Link> </button>
                 <button className="btn-itemcount1" onClick={cleanCart}> Cancelar </button>
-            </span>
-
+            </div>
+            
             <div  className="msj">
                 Antes de confirmar tu compra ingresá estos datos, asi podemos contactarte por mail para finalizarla:
             </div>

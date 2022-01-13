@@ -22,17 +22,15 @@ const CartDetail = () => {
             </thead>
             <tbody>
                 {cart.map(product => {
-
-                    total += product.item.price * product.quantity
-
-                    return <tr >
+                    total += product.item.price*product.quantity
+                    return (<tr>
                         <td> <img src={product.item.img} alt={product.name} className="itemImg" /></td>
                         <td className="datos"> {product.item.description} </td>
                         <td className="datos" > {product.quantity} unid. </td>
                         <td className="datos" > $ {product.item.price} </td>
                         <td className="datos" >  ${product.item.price * product.quantity}</td>
                         <td> <button className="btn-itemcount1" onClick={() => removeItem(product.item.id)}> X </button></td>
-                    </tr>
+                    </tr>)
                 })}
                  
              
