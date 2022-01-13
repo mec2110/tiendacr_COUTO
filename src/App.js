@@ -19,22 +19,24 @@ const App = () => {
     <div className="App"> 
      
     <Router> 
-      <header>
+      <div className="header">
         <NavBar/>
-      </header>
-      <body>
+      </div>
+      <div className="body">
         <div>
         <img src={portada} className="App-portada" alt="portada" />
         </div>
 
         <div>
-          <h1> ÚLTIMO DESAFÍO </h1>
+         
           <Routes>
 
             <Route exact path="/" element={<ItemListContainer/>} />
             
             <Route path="/category/:categoryId"
                element={<ItemListContainer/>} />
+
+        
 
            <Route path="/item/:paramId"
              element={<ItemDetailContainer/>} />
@@ -54,7 +56,7 @@ const App = () => {
            </Routes>
           
         </div> 
-      </body>
+      </div>
 
       <Footer />
      

@@ -216,6 +216,10 @@ font-size: 10px;
   margin-top: 10px !important;
 }
 
+
+
+/*Tabla Cart*/ 
+
 .table {
   --bs-table-bg: transparent;
   --bs-table-accent-bg: transparent;
@@ -229,5 +233,39 @@ font-size: 10px;
   margin-bottom: 1rem;
   color: #18cbc4 !important;
   vertical-align: top;
-  border-color: #ffcb08 !important;
+  border-color: 0px !important;
 }
+
+.table>tbody {
+  vertical-align:middle !important;
+  text-align: center ;
+}
+
+.tabla2 {
+  border-bottom-width: 0px !important;
+  box-shadow: none !important;
+  color:#18cbc4;
+font-weight: 900;
+font-size: 21px;
+margin-top: 10px;
+}
+
+.msj{
+  color:#18cbc4;
+  font-weight: 900;
+  font: 21px;
+   margin-top: 20px !important;
+}
+
+
+/* Cart Widget css*/
+
+.cartwidget {
+  color : "#ffcb08" !important;
+  font-size : 15px!important;
+   background-color: "#18cbc4" !important;
+   width: 30px  !important;
+  border-color: none !important;
+}
+
+

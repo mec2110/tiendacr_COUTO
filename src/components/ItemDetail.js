@@ -47,8 +47,7 @@ const ItemDetail= ({product}) => {
            <button onClick={btnPurchase} className="btn-itemcount3"> <Link className="link3" to= "/cart"> Comprar </Link></button>
            }
            </div>
-
-      </div>
+   </div>
   )
 }
   

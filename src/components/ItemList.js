@@ -9,17 +9,16 @@ import { getDocs, collection } from "firebase/firestore"
 
 
 const ItemList = ({products}) =>{
-  
-  const [categories,setCategories] = useState ([])
+  const [category,setSubcategories] = useState ([])
 
   useEffect(()=>{
     
-    getDocs(collection(db, "Categories")).then((querySnapshot) =>{
-      const Categories = querySnapshot.docs.map (doc => {
+    getDocs(collection(db, "subCategories")).then((querySnapshot) =>{
+      const subCategories = querySnapshot.docs.map (doc => {
         return {id: doc.id, ...doc.data()}
       })
-      console.log(Categories)
-      setCategories(Categories)
+      
+      setSubcategories(subCategories)
     })
   },[])
        
@@ -27,8 +26,8 @@ const ItemList = ({products}) =>{
 
         <div>
 
-        <div className="margin-top"> <p>Filtrar por categorías:</p>
-          {categories.map(cat => <Link key={cat.id} className="btnfiltro" to = {`/category/${cat.id}`}> {cat.description} </Link> )}
+        <div className="margin-top"> <p>Ver todos los productos de:</p>
+          {category.map(cat => <Link key={cat.id} className="btnfiltro" to = {`/subCategory/${cat.id}`}> {cat.description} </Link> )}
         </div>
           
         <ul>

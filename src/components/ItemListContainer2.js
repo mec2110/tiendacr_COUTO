@@ -6,12 +6,12 @@ import { db } from "../services/firebase";
 import { collection, getDocs, query, where } from "firebase/firestore";
 
 const ItemListContainer =()=> {
-     const {categoryId} = useParams()
+     const {subCategoryId} = useParams()
      const [products, setProducts] = useState ([]);
      const [loading, setLoading] = useState (true)
 
   useEffect(() => {
-    if (!categoryId) {
+    if (!subCategoryId) {
       setLoading(true)
       getDocs(collection(db, "Items")).then((querySnapshot) => {
       const products = querySnapshot.docs.map (doc => {
@@ -26,7 +26,7 @@ const ItemListContainer =()=> {
   } else{
 
     setLoading(true)
-    getDocs(query(collection(db, "Items"), where ("category", "==",categoryId))).then((querySnapshot) => {
+    getDocs(query(collection(db, "Items"), where ("subCategory", "==",subCategoryId))).then((querySnapshot) => {
       console.log(querySnapshot)
       const products = querySnapshot.docs.map (doc => {
        return { id:doc.id,...doc.data()}
@@ -43,7 +43,7 @@ const ItemListContainer =()=> {
        return (() => {
          setProducts([])
        })
-     }, [categoryId])
+     }, [subCategoryId])
    
      if(loading){
        return <h1 className="datos"> Loading ... </h1>

@@ -7,7 +7,6 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min";
 import "@fortawesome/fontawesome-svg-core";
 import "@fortawesome/react-fontawesome";
-import "./components/NavBar/NavBar.css";
 
 ReactDOM.render(
   <React.StrictMode>
@@ -16,6 +15,5 @@ ReactDOM.render(
   document.getElementById('root')
 );
 
-// En App voy a tener mi componente padre de todo, asi que todo lo que contenga se inserta en el DIV ROOT.
 
 reportWebVitals();

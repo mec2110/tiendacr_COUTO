@@ -1,7 +1,5 @@
 import React, { createContext, useState } from "react";
 import "./CartContext.css";
-//import {useState } from "react";
-//import ItemCount from "./ItemCount";
 
 export const CartContext = createContext();
 
