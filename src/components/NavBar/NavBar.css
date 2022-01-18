@@ -250,6 +250,10 @@ font-size: 21px;
 margin-top: 10px;
 }
 
+.td{
+  border-bottom-width: 0px !important;
+  box-shadow: none !important;
+}
 .msj{
   color:#18cbc4;
   font-weight: 900;

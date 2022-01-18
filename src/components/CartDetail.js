@@ -11,19 +11,19 @@ const CartDetail = () => {
     return (
         <table className="table table-striped">
             <thead>
-                <tr>
-                    <th className="datos" scope="col">Foto del producto</th>
+                <tr><th className="datos" scope="col">Foto del producto</th>
                     <th className="datos" scope="col">Descripción</th>
                     <th className="datos" scope="col">Cantidad</th>
                     <th className="datos" scope="col">Precio x unidad:</th>
                     <th className="datos" scope="col">Total:</th>
-                    <th> </th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
                 {cart.map(product => {
                     total += product.item.price*product.quantity
-                    return (<tr>
+                    return (
+                    <tr key={product}>
                         <td> <img src={product.item.img} alt={product.name} className="itemImg" /></td>
                         <td className="datos"> {product.item.description} </td>
                         <td className="datos" > {product.quantity} unid. </td>
@@ -36,7 +36,7 @@ const CartDetail = () => {
              
             </tbody>
             <tbody className="tabla2">
-           <tr> TOTAL A ABONAR: $ {total} </tr>
+           <tr><td className="td">TOTAL A ABONAR: $ {total}</td></tr>
             </tbody>
         </table >
     )
