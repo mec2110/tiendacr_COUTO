@@ -9,8 +9,7 @@ import { useNavigate } from 'react-router-dom';
 import CartDetail from "./CartDetail";
 
 const Cart = () => {
-    const { cart, cleanCart, getUser } = useContext(CartContext);
-    let total = 0;
+    const { cart, cleanCart, getUser, total } = useContext(CartContext);
     let navigate = useNavigate();
 
     const [processingOrder, setProcessingOrder] = useState(false)
@@ -60,7 +59,7 @@ const Cart = () => {
         if (outOfStock.length === 0) {
             addDoc(collection(db, "orders"), objOrder).then(({ id }) => {
                 batch.commit().then(() => {
-                    console.log(`El nùmero de su compra es  ${id}`)
+                    alert(`El número de órden de su compra es  ${id}`)
                 })
             }).catch((error) => {
                 console.error(`error`);
@@ -77,23 +76,23 @@ const Cart = () => {
     }
 
     if (processingOrder) {
-        return <h2 className="datos"> Se está procesando su orden, no salga de la página...</h2>
+        return <h2 className="datos"> Se está procesando su orden , no salga de la página...</h2>
     }
 
     if (cart.length === 0) {
         return (
             <h2 className="datos2">
-               
-               <div  className='padding'>
-                <img src={cartEmpty}  alt="Carrito vacío" />
+
+                <div className='padding'>
+                    <img src={cartEmpty} alt="Carrito vacío" />
                 </div>
 
-                <div className="margin-top"> 
-                Hey, todavía no hay productos en tu carrito!
+                <div className="margin-top">
+                    Hey, todavía no hay productos en tu carrito!
                 </div>
-                
+
                 <div className='padding'>
-                    Empezá a sumarlos  <Link to={"/"} className="link2"> 👉 acá </Link> 
+                    Empezá a sumarlos  <Link to={"/"} className="link2"> 👉 acá </Link>
                 </div>
             </h2>
         )
@@ -102,68 +101,68 @@ const Cart = () => {
     return (
 
         <div> <CartDetail />
-                   
-                   
+
+
             <div>
-                <button className="btn-itemcount1"> <Link to={"/"} className="link3">Seguir comprando </Link> </button>
-                <button className="btn-itemcount1" onClick={cleanCart}> Cancelar </button>
+                <button className="btn-itemcount1"><Link to={"/"} className="link3">Seguir comprando</Link></button>
+                <button className="btn-itemcount3" onClick={cleanCart}>Cancelar</button>
             </div>
-            
-            <div  className="msj">
+
+            <div className="msj">
                 Antes de confirmar tu compra ingresá estos datos, asi podemos contactarte por mail para finalizarla:
             </div>
 
-            <div>  
+            <div>
                 {!processingOrder ? (
-                <form
-                    method="POST"
-                    onSubmit={confirmOrder}
-                    style={{ margin: '15px 0px', padding: "5px" }}
-                >
-                    <input
-                        onChange={fillForm}
-                        type="text"
-                        name="name"
-                        placeholder="nombre"
-                        style={{ margin: '5px' }}
-                    />
-                    <input
-                        onChange={fillForm}
-                        type="email"
-                        name="mail"
-                        placeholder="email"
-                        style={{ margin: '5px' }}
-                    />
-                    <input
-                        onChange={fillForm}
-                        type="text"
-                        name="address"
-                        placeholder="Ingresá tu dire"
-                        style={{ margin: '5px' }}
-                    />
-                    <div>
-                        <button
-                            disabled={
-                                cart?.length === 0 ||
-                                form.name === '' ||
-                                form.mail === '' ||
-                                form.address === ''
-                            }
-                            className="btn-itemcount1" >
+                    <form
+                        method="POST"
+                        onSubmit={confirmOrder}
+                        style={{ margin: '15px 0px', padding: "5px" }}
+                    >
+                        <input
+                            onChange={fillForm}
+                            type="text"
+                            name="name"
+                            placeholder="nombre"
+                            style={{ margin: '5px' }}
+                        />
+                        <input
+                            onChange={fillForm}
+                            type="email"
+                            name="mail"
+                            placeholder="email"
+                            style={{ margin: '5px' }}
+                        />
+                        <input
+                            onChange={fillForm}
+                            type="text"
+                            name="address"
+                            placeholder="Ingresá tu dire"
+                            style={{ margin: '5px' }}
+                        />
+                        <div>
+                            <button
+                                disabled={
+                                    cart?.length === 0 ||
+                                    form.name === '' ||
+                                    form.mail === '' ||
+                                    form.address === ''
+                                }
+                                className="btn-itemcount1" type='submit' >
 
-                            Confirmar
-                        </button>
-                    </div>
-                </form>
-             ) : (
-                <p className="datos">
-                    Estamos generando su orden, en breve te contáctaremos por mail para finalizar tu compra...
-                </p>
-             )}
+                                Comprar
+                            </button>
+                        </div>
+                    </form>
+                ) : (
+                    <p className="datos">
+                        Estamos generando su orden, en breve te contáctaremos por mail para finalizar tu compra...
+                    </p>
+                )}
             </div>
 
-</div>
-            )
+        </div>
+    )
 }
 
- export default Cart;
+export default Cart;

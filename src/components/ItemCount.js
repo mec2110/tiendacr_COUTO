@@ -1,37 +1,39 @@
-import  React, {useState} from "react";
+import React, { useState } from "react";
 import "./NavBar/NavBar.css";
 
 
-const ItemCount = ({stock, initial, onAdd}) => {
-     
-    const [count, setCount] = useState (initial=1);
+const ItemCount = ({ stock, initial, onAdd }) => {
 
-    const sumar = () => {
-        //Stock hasta lo que estè disponible en el array de products
-        if (count < stock){
-            setCount (count + 1);
-        
+    const [count, setCount] = useState(initial = 1);
+
+    const add = () => {
+        //Stock hasta lo que estè disponible
+        if (count < stock) {
+            setCount(count + 1);
+
         }
     }
 
-    const restar = () => {
-        
-        if (count > initial){
-            setCount (count - 1);
-        
+    const substract = () => {
+
+        if (count > initial) {
+            setCount(count - 1);
+
         }
     }
 
-return (
+    return (
         <div>
             <div>
-                <button className="btn-itemcount1" onClick={sumar}> + </button> 
+                <p className="alertCount"> Podés comprar hasta {stock} unidades</p>
+                <p className="alertCount">de esté producto</p>
+                <button className="btn-itemcount1" onClick={add}> + </button>
                 <span className="count"> {count} </span>
-                <button className="btn-itemcount2" onClick={restar}> - </button>
+                <button className="btn-itemcount2" onClick={substract}> - </button>
             </div>
             <div>
-            <button onClick={() => onAdd(count)} className="btn-itemcount3"> Agregar a mi carrito</button>                
-            <p className="alertCount"> Quedan disponibles: {stock}</p>
+                <button onClick={() => onAdd(count)} className="btn-itemcount3">Agregar al carrito</button>
+
             </div>
         </div>
     )
