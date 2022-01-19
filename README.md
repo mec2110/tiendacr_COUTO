@@ -3,8 +3,12 @@
 Se trata de una tienda ecommerce para el proyecto del curso de REACT de CODER HOUSE.
 En este caso, es la tienda virtual de CURIOUS RABBIT, marca que vende cuadernos, vinilos, posters, y otros productos de diseño de series, películos y dibujos animados.
 
+La interfaz fue realizada con REACTJS-CREATE REACT APP, permitiendo realizar compra de productos, cuya orden se alamacena en firebase.
+
 🇺🇸 It is a ecommerce site that i realized for React Course's Project in Coder House.
 In this case, it's the store from Curious rabbit, a brand of notebooks, vinils, posters, and other products with originals designs about tv shows, movies, and cartoons.
+
+The interfaz had been made with REACT JS CREATE REACT APP, and it allow to do a buy, and their buy order is saved at firebase.
 
 ## About me 🙋‍♀️
 
@@ -23,7 +27,7 @@ Soy María Eugenia Couto, Diseñadora Gráfica Multimedial Sr. recibida en la Un
 
 ## Before to start you need... 🔧
 
-Para poder visualizar mi proyecto es necesario realizar primero algunas instalaciones.
+Una vez clonado o descargado el proyecto, es necesario realizar primero algunas instalaciones.
 
 1) Debemos instalar en nuestro equipo:
    
@@ -35,27 +39,29 @@ Para poder visualizar mi proyecto es necesario realizar primero algunas instalac
 
 ✅npm --version.- Verificamos que se haya instalado correctamente el gestor de dependencias de Javascript
 
-✅npx create-react-app miaplicacion.- Con este comando iniciamos la instalación de un proyecto con React JS.
+✅ Una vez chequeado, para instalar dependencias ejecutamos: npm install.
 
-✅cd miaplicacion .- Ingresamos al directorio de la aplicación
-
-✅npm start.- Finalmente iniamos la compilación del proyecto para visualizarlo en un navegador web.
+✅npm start.- Finalmente iniciamos la compilación del proyecto para visualizarlo en un navegador web.
 
 
-⚠IMPORTANTE⚠ Si es la primera vez que incursionas REACT y no sabés qué es un REPO, GIT, etc...Te recomiento que instales GIT HUB y uses en tu terminal de VISUAL STUDIO la extesnión GIT BASH, para poder implementar los mismos comandos y trabajar más prolijo.
+⚠IMPORTANTE⚠ Si es la primera vez que incursionas REACT y no sabés qué es un REPO, GIT, etc...Te recomiento que instales GIT y uses en tu terminal de VISUAL STUDIO la extesnión GIT BASH, para poder implementar los mismos comandos y trabajar más prolijo.
 
 Lo pueden descargar e instalar [siguiendo estos pasos acá](https://www.stanleyulili.com/git/how-to-install-git-bash-on-windows/).
 
 🔗 Pueden clonar y descargar mi repo [acá](https://github.com/mec2110/tiendacr_COUTO/tree/TrabajoFInal-MaEugeniaCouto).
 
 
-3) Otros frameworks que debés instalar son:
+3) Otras tecnologías y librerías que debés instalar y considerar son:
 
   a. REACT ROUTER DOM desde consola a través del comando:
   npm install history@5 react-router-dom@6 .
   Es indispensable está versión para ver el routeo realizado y que funcione UseNavigate.
 
   b. Font Awesome para REACT como indica [acá](https://fontawesome.com/v5.15/how-to-use/on-the-web/using-with/react).
+  
+  c. Backend con FIREBASE.
+
+  d. Estilos con Bootstrap.
 
 🇺🇸 You need to install..
 1) We need to install in our computer the last version of [NODE JS](https://nodejs.org/en/).
@@ -70,12 +76,14 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 
 3) Other things to install are:
 
-a.REACT ROUTER DOM from the terminal:
+  a.REACT ROUTER DOM from the terminal:
   npm install history@5 react-router-dom@6 . 
   It is very importamt to see and use commands from this version of routs.
 
 
-b.Font Awesome for REACT [here](https://fontawesome.com/v5.15/how-to-use/on-the-web/using-with/react).
+  b.Font Awesome for REACT [here](https://fontawesome.com/v5.15/how-to-use/on-the-web/using-with/react).
+  c.Firebase (you need an account).
+  d.Bootstrap for css style.
 
 
 ## More about my project🖥
@@ -88,6 +96,7 @@ Contiene toda la información del js firebase de tal manera que no puedan emplea
 ⚠ Para esté proyecto generé un archivo: .env.example
 
 🇺🇸 You can see the project in the browser with NPM START
+
 📌Runs the app in the development mode.
 Open http://localhost:3000 to view it in the browser.
 
@@ -104,14 +113,14 @@ En la pantalla principal de mi tienda vamos a encontrar toda la lista de product
 
 Al clickear en VER MÁS, pueden acceder al detalle del producto y agregarlo al carrito. Además una vez agregado podes confirmar la compra para ser redirigido/a al carrito donde se termina de finalizar la misma, o podés eliminar items o cancelarla.
 
-Una vez finalizada se genera una orden de compra y queda pendiente ultimar detalles de pago y envío a través del mail con el/la comprador/a.
+Una vez finalizada se genera una orden de compra y en Firebase se almacena la orden de compra de productos que compró la persona usuario, quedando pendiente ultimar detalles de pago y envío a través del mail con el/la comprador/a.
 
 Ingresá acá para ver la navegación en un breve video:
 [LINK](https://drive.google.com/drive/folders/1uL8HhQrcROP5fDtYNPyn_QsCwS_D_lPq?usp=sharing)
 
 🇺🇸 In the index you can find all the products availables with a short description. You can use de menu in the nav to filter between notebooks or vinils.
 
-When you choose a product, you can click in "see more" and enter in the product'detail where you can get a long description about it and the stock available now. Here you can "add to cart" and "confirm" to buy. After that, you will navigate to the cart where you can see yours products, the quantity and the total price. In the cart section you can end the buy but before, you have to fill a short form with information to contact you for more details. 
+When you choose a product, you can click in "see more" and enter in the product'detail where you can get a long description about it and the stock available now. Here you can "add to cart" and "confirm" to buy. After that, you will navigate to the cart where you can see yours products, the quantity and the total price. In the cart section you can end the buy but before, you have to fill a short form with information to contact you for more details. The order will be generate in Firebase.
 
 You can see the navigation here:
 [LINK](https://drive.google.com/drive/folders/1uL8HhQrcROP5fDtYNPyn_QsCwS_D_lPq?usp=sharing)
