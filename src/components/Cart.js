@@ -9,9 +9,9 @@ import { useNavigate } from 'react-router-dom';
 import CartDetail from "./CartDetail";
 
 const Cart = () => {
-    const { cart, cleanCart, getUser, total } = useContext(CartContext);
+    const { cart, cleanCart, getUser } = useContext(CartContext);
     let navigate = useNavigate();
-
+    let total = []
     const [processingOrder, setProcessingOrder] = useState(false)
     const [form, getForm] = useState({
         address: "",
@@ -57,9 +57,9 @@ const Cart = () => {
         });
 
         if (outOfStock.length === 0) {
-            addDoc(collection(db, "orders"), objOrder).then(({ id }) => {
+            addDoc(collection (db, "orders"), objOrder).then(({id}) => {
                 batch.commit().then(() => {
-                    alert(`El número de órden de su compra es  ${id}`)
+                   alert (`El nùmero de su compra es  ${id}`)
                 })
             }).catch((error) => {
                 console.error(`error`);
