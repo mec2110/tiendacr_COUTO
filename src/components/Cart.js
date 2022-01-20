@@ -22,7 +22,8 @@ const Cart = () => {
         });
     };
 
-    const confirmOrder = () => {
+    const confirmOrder = (event) => {
+        event.preventDefault();
         getUser(form);
         setProcessingOrder(true);
 
@@ -142,7 +143,7 @@ const Cart = () => {
                                     form.address === ''
                                 }
                                 className="btn-itemcount1"
-                                type="submit" >
+                                 >
 
                                 Comprar
                             </button>
