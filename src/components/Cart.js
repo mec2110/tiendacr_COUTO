@@ -9,15 +9,10 @@ import { useNavigate } from 'react-router-dom';
 import CartDetail from "./CartDetail";
 
 const Cart = () => {
-    const { cart, cleanCart, getUser } = useContext(CartContext);
+    const { cart, cleanCart, getUser, getTotalAmount } = useContext(CartContext);
     let navigate = useNavigate();
-    let total = []
-    const [processingOrder, setProcessingOrder] = useState(false)
-    const [form, getForm] = useState({
-        address: "",
-        mail: "",
-        name: "",
-    })
+    const [processingOrder, setProcessingOrder] = useState(false);
+    const [form, getForm] = useState({ address: "", mail: "", name: "", })
 
     const fillForm = (e) => {
         const { name, value } = e.target;
@@ -27,22 +22,21 @@ const Cart = () => {
         });
     };
 
-
     const confirmOrder = () => {
         getUser(form);
-        setProcessingOrder(true)
+        setProcessingOrder(true);
 
         const db = getFirestore();
 
         const objOrder = {
             buyer: { email: form.mail, nombre: form.name, direccion: form.address },
             items: cart,
-            total: total,
+            total: getTotalAmount(),
             date: Timestamp.fromDate(new Date())
         };
 
-        const batch = writeBatch(db)
-        const outOfStock = []
+        const batch = writeBatch(db);
+        const outOfStock = [];
 
         objOrder.items.forEach((product) => {
             getDoc(doc(db, "Items", product.item.id)).then((documentSnapShot) => {
@@ -57,9 +51,9 @@ const Cart = () => {
         });
 
         if (outOfStock.length === 0) {
-            addDoc(collection (db, "orders"), objOrder).then(({id}) => {
+            addDoc(collection(db, "orders"), objOrder).then(({ id }) => {
                 batch.commit().then(() => {
-                   alert (`El nùmero de su compra es  ${id}`)
+                    alert(`El número de su compra es  ${id}`)
                 })
             }).catch((error) => {
                 console.error(`error`);
@@ -76,7 +70,7 @@ const Cart = () => {
     }
 
     if (processingOrder) {
-        return <h2 className="datos"> Se está procesando su orden , no salga de la página...</h2>
+        return <h2 className="datos"> Se está procesando su orden, no salga de la página...</h2>
     }
 
     if (cart.length === 0) {
@@ -92,7 +86,7 @@ const Cart = () => {
                 </div>
 
                 <div className='padding'>
-                    Empezá a sumarlos  <Link to={"/"} className="link2"> 👉 acá </Link>
+                    Empezá a sumarlos  <Link to={"/"} className="link2"> 👉acá </Link>
                 </div>
             </h2>
         )
@@ -100,12 +94,11 @@ const Cart = () => {
 
     return (
 
-        <div> <CartDetail />
-
-
+        <div>
+            <CartDetail />
             <div>
-                <button className="btn-itemcount1"><Link to={"/"} className="link3">Seguir comprando</Link></button>
-                <button className="btn-itemcount3" onClick={cleanCart}>Cancelar</button>
+                <button type="button" className="btn-itemcount1"><Link to={"/"} className="link3">Seguir comprando</Link></button>
+                <button type="button" className="btn-itemcount3" onClick={cleanCart}>Cancelar</button>
             </div>
 
             <div className="msj">
@@ -148,7 +141,8 @@ const Cart = () => {
                                     form.mail === '' ||
                                     form.address === ''
                                 }
-                                className="btn-itemcount1" type='submit' >
+                                className="btn-itemcount1"
+                                type="submit" >
 
                                 Comprar
                             </button>

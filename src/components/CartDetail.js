@@ -1,12 +1,11 @@
-
-import React, {useContext } from "react";
+import React, { useContext } from "react";
 import "./NavBar/NavBar.css";
 import { CartContext } from "./CartContext/CartContext"
 
 
 const CartDetail = () => {
-    const { cart, removeItem } = useContext(CartContext);
-    let total = 0;
+    const { cart, removeItem, getTotalAmount } = useContext(CartContext);
+
 
     return (
         <table className="table table-striped">
@@ -20,23 +19,19 @@ const CartDetail = () => {
                 </tr>
             </thead>
             <tbody>
-                {cart.map(product => {
-                    total += product.item.price*product.quantity
-                    return (
-                    <tr key={product}>
+                {cart.map(product =>
+                    <tr key={product.item.id}>
                         <td> <img src={product.item.img} alt={product.name} className="itemImg" /></td>
                         <td className="datos"> {product.item.description} </td>
                         <td className="datos" > {product.quantity} unid. </td>
                         <td className="datos" > $ {product.item.price} </td>
                         <td className="datos" >  ${product.item.price * product.quantity}</td>
                         <td> <button className="btn-itemcount1" onClick={() => removeItem(product.item.id)}> X </button></td>
-                    </tr>)
-                })}
-                 
-             
+                    </tr>
+                )}
             </tbody>
             <tbody className="tabla2">
-           <tr><td className="td">TOTAL A ABONAR: $ {total}</td></tr>
+                <tr><td className="td">TOTAL A ABONAR: $ {getTotalAmount()}</td></tr>
             </tbody>
         </table >
     )

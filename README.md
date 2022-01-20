@@ -125,6 +125,10 @@ When you choose a product, you can click in "see more" and enter in the product'
 You can see the navigation here:
 [LINK](https://drive.google.com/drive/folders/1uL8HhQrcROP5fDtYNPyn_QsCwS_D_lPq?usp=sharing)
 
+![Navigation][navegacion]
+
+[navegacion]: /public/gif/presentacion.gif "Navegación"
+
 ## Contact 📪
 
 En caso de dudas o sugerencias sobre el proyecto pueden escribirme a:

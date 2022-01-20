@@ -17,6 +17,13 @@ const CartContextProvider = ({ children }) => {
         return subTotal;
     }
 
+    const getTotalAmount = () => {
+        let subTotalAmount = 0;
+        cart.forEach(item => {
+            subTotalAmount += item.item.price * item.quantity
+        })
+        return  subTotalAmount;
+    }
 
 
     const getUser = (form) => {
@@ -52,7 +59,7 @@ const CartContextProvider = ({ children }) => {
     }
 
     return (
-        <CartContext.Provider value={{ cart, getquantity, addItem, removeItem, cleanCart, getUser, userEmail }} >
+        <CartContext.Provider value={{ cart, getquantity, addItem, removeItem, cleanCart, getUser, userEmail,getTotalAmount }} >
             {children}
         </CartContext.Provider>
     )
