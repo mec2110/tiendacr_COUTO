@@ -1,24 +1,39 @@
-import React from "react";
-import ItemCount from "./ItemCount";
+import React, { useEffect, useState } from "react";
+//import ItemCount from "./ItemCount";
+import ItemList from "./ItemList";
+import "./NavBar/NavBar.css";
+import { getProducts } from "./products";
+import { useParams} from "react-router-dom";
 
-const ItemListContainer =()=>
-{
-  const onAdd = () => {
-    console.log ("Agregado al carrito")
+
+//import { useParams} from "react-router-dom";
+
+
+
+const ItemListContainer =()=> {
+     const {categoryId} = useParams()
+     const [products, setProducts] = useState ([]);
+
+  useEffect(()=>{
+    getProducts(categoryId).then (item => {
+         setProducts(item) // un solo item por categoria
+       }).catch(err =>{
+         console.log(err)
+       })
+   
+       return (() => {
+         setProducts([])
+       })
+     }, [categoryId])
+   
+     
   
-  }
+  return (
+      <div className="ItemListContainer">
+        <ItemList products= {products}/>
 
-    return (
-      <div>
-          <ItemCount onAdd = {onAdd} stock = {10}/>
       </div>
     )
   }
 
   export default ItemListContainer;
-
- /* function ItemListContainer (props){
-    return <h2>I am a { props.brand }!</h2>;
-  }
-
-<ItemCount stock="5" initial="1"/>*/

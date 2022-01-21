@@ -68,3 +68,29 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+###  "product.js" 
+Incluye las funciones que me permiten visualizar distintos elementos según lo solicitado.
+
+1) GetCategories permite mostrar categorias.
+2) GetItem permite obtener un solo item que se complementa con ItemDetailContainer e ItemDetail
+3) GetProduct permite mostrar la lista de productos, la misma la trae la funciòn que se encuentra e ItemListContainer, que se encuentra mapeado en ItemList.
+4)GetProductById permite obtener ItemDetail por ID
+
+### Contador
+Permite sumar o restar productos
+
+### Nav.css
+
+Contiene todas las Clases Css que editan al resto de los archivos (todos).
+
+## Proyecto
+
+Se trata de una tienda ecommerce para el proyecto del curso de REACT de CODER HOUSE.
+En este caso, es la tienda virtuald e CURIOUS RABBIT, marca que vende cuadernos, vinilos, posters, y otros productos de diseño de series, películos y dibujos animados.
+
+## About me
+
+Soy Ma. Eugenia Couto, Diseñadora Gráfica Multimedial Sr recibida en la Universidad de Morón ("han pasado 84 años"). Actualmente soy Digital Designer en una fintech en expansión y desempeño tareas de UX UI.
+Pueden conocer más sobre mis trabajos acá: https://www.behance.net/MECdesign
+Perfil profesional: https://www.linkedin.com/in/mar%C3%ADa-eugenia-couto/

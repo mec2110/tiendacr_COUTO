@@ -1,79 +1,202 @@
 .NavContainer {
-    margin:0;
-    padding:0;
-    overflow: hidden;
-    background-color: #fff;
-    width: 100%;
-    position: relative;
-    top: 0;
-    height: 50px;
-    display: flex;
-    align-items: center;
+  margin:0;
+  padding:0;
+  overflow: hidden;
+  background-color: #fff;
+  width: 100%;
+  position: relative;
+  top: 0;
+  height: 50px;
+  display: flex;
+  align-items: center;
 
 }
 
 .list { 
-    display:block;
-    color:#ccc;
-    text-align: center;
-    padding: 10px 15px;
-    font-size: 15px;
+  display:inline-flex;
+  text-align: center;
+  padding: 10px 15px;
   text-decoration: none;
+  margin: 10px;
+  list-style-type: none;
 }
 
-.list:hover { 
-    color:rgb(39, 187, 192);
- }
+.link {
+  display:inline-flex;
+  text-align: center;
+  text-decoration: none;
+  margin: 10px;
+  list-style-type: none;
+  color:#fee69c;
+  font: 21px;
 
- .bg-dark2 { 
-  background-color:#18cbc4 !important;
+}
+
+.link:hover {
+  color:#9d9ad6;
+
+}
+
+.link2 {
+  
+  text-align: center;
+  text-decoration: none;
+  margin: 10px;
+  color:#18cbc4;
+  font: 21px;
+  border-color:#18cbc4 solid 2!important;
+
+}
+
+.link2:hover {
+  color:#9d9ad6;
+
+}
+
+.bg-dark2 { 
+background-color:#18cbc4 !important;
 }
 
 .navbar-dark .navbar-nav .nav-link {
-  color: rgba(254,230,156,255) !important;
+color: rgba(254,230,156,255) !important;
 }
 
 .Img-Responsive{
-  margin-left: 20px;
+margin-left: 20px;
 }
 
+/*ItemCount*/
 .btn-itemcount1{
-  background-color:#18cbc4 !important;
-  color:#fee69c;
-  padding: 10;
-  margin: 2px;
-
-
+background-color:#18cbc4 !important;
+color:#fee69c;
+padding: 10px;
+margin: 2px;
+border-radius:5px;
+border:0;
 }
 
 .btn-itemcount2{
-  background-color:#9d9ad6
-  !important;
-  color:#fee69c;
-  padding: 10;
-  margin: 2px;
-
-
+background-color:#9d9ad6
+!important;
+color:#fee69c;
+padding: 10px;
+margin: 2px;
+border-radius:5px;
+border:0;
 }
 
 .btn-itemcount3{
-  background-color:#ffcb08
-  !important;
-  color:#18cbc4;
-  padding: 10;
-  margin: 2px;
-  font-weight: 900;
-  border-color:#18cbc4 solid 1 ;
-
+background-color:#ffcb08
+!important;
+color:#18cbc4;
+padding: 10px;
+margin: 2px;
+font-weight: 900;
+border-color:#18cbc4 solid 1;
+border-radius:5px;
+border:0;
 }
 
 .count{
-  color:#9d9ad6;
-  font-weight: 900;
-  margin: 2px;
+color:#9d9ad6;
+font-weight: 900;
+margin: 2px;
 
 }
 
 .fondo{
-  backgroundColor:#fee69c;
+background-color:#fee69c;
+}
+
+.ItemListContainer{
+background-color:#9d9ad6;
+color:#fff;
+}
+
+.alertCount {
+  color:#18cbc4;
+  font-weight: 900;
+  margin: 2px 5px;
+}
+
+/*ItemDetail*/
+.itemImg{
+background-color:#fee69c;
+width: 200px;
+margin: 5px;
+
+}
+
+.itemImg2{
+background-color:#fee69c;
+width: 500px;
+margin: 5px;
+
+}
+
+.titulo{
+color:#18cbc4;
+font-weight: 900;
+font-size: 21px;
+}
+
+.datos{
+color:#18cbc4;
+font-weight: 900;
+font: 18px;
+}
+
+.datos2{
+color:#18cbc4;
+font-weight: bold;
+font: 25px;
+}
+
+.precio{
+  color:#9d9ad6;
+  font-weight: bold;
+  font: 35px;
+  }
+
+.descripcion{
+  font-size: 18px;
+  color:#18cbc4;
+}
+
+.btndetalle{
+background-color:#ffcb08
+!important;
+color:#18cbc4;
+padding: 5px !important;
+margin: 5px;
+font-weight: 900;
+border-color:#18cbc4 solid 1 ;
+border-radius: 1em;
+text-decoration: none;
+font-size: 10px;
+
+}
+
+.btnfiltro{
+  background-color:#ffcb08
+  !important;
+  color:#18cbc4;
+  padding: 2px !important;
+  margin: 1em;
+  font-weight: 900;
+  border-color:#18cbc4 solid 1 ;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 15px!important;
+  
+  }
+
+  /*Otros*/
+
+.App-portada{
+  width:100% !important;
+}
+
+.margin-top{
+  margin-top: 10px !important;
 }
