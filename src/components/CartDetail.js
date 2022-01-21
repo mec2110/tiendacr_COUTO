@@ -26,7 +26,7 @@ const CartDetail = () => {
                         <td className="datos" > {product.quantity} unid. </td>
                         <td className="datos" > $ {product.item.price} </td>
                         <td className="datos" >  ${product.item.price * product.quantity}</td>
-                        <td> <button className="btn-itemcount1" onClick={() => removeItem(product.item.id)}> X </button></td>
+                        <td> <button  className="btn-itemcount1" onClick={() => removeItem(product.item.id)}> X </button></td>
                     </tr>
                 )}
             </tbody>

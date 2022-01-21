@@ -33,10 +33,11 @@ const CartContextProvider = ({ children }) => {
     const addItem = (product, Totalquantity) => {
         const flag = isInCart(product);
         if (flag) {
-            let productRepeat = cart.find(i => i.item === product);
+            let productRepeat = cart.find(i => i.item.id === product.id);
+            
             productRepeat.quantity += Totalquantity;
 
-            let cartNoRepeat = cart.filter(i => i.item !== product);
+            let cartNoRepeat = cart.filter(i => i.item.id !== product.id);
             setCart([...cartNoRepeat, productRepeat]);
         } else {
             setCart([...cart, { item: product, quantity: Totalquantity }]);
@@ -45,7 +46,7 @@ const CartContextProvider = ({ children }) => {
 
     const isInCart = (item) => {
         console.log(item);
-        return cart.some(products => products.item === item);
+        return cart.some(products => products.item.id === item.id);
     }
 
     const removeItem = (id) => {
