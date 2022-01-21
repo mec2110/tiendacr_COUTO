@@ -190,6 +190,13 @@
   }
 
   .footer{
-    font-size: 16px;
+    font-size: 20px;
     color:#18cbc4;
+    width: 100%;
+    position:relative; 
+    margin:0; 
+    left:0; 
+    overflow: visible;
+    background-color:#fee69c;
+    height: 200px;
   }

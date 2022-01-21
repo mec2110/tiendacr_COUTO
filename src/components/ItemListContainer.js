@@ -1,39 +1,61 @@
 import React, { useEffect, useState } from "react";
-//import ItemCount from "./ItemCount";
 import ItemList from "./ItemList";
 import "./NavBar/NavBar.css";
-import { getProducts } from "./products";
-import { useParams} from "react-router-dom";
+import { useParams } from "react-router-dom";
+import { db } from "../services/firebase";
+import { collection, getDocs, query, where } from "firebase/firestore";
+
+const ItemListContainer = () => {
+  const { categoryId } = useParams()
+  const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    if (!categoryId) {
+      setLoading(true)
+      getDocs(collection(db, "Items")).then((querySnapshot) => {
+        const products = querySnapshot.docs.map(doc => {
+          return { id: doc.id, ...doc.data() }
+        })
+        setProducts(products)
+      }).catch((error) => {
+        console.log("Error searching items", error)
+      }).finally(() => {
+        setLoading(false)
+      })
+    } else {
+
+      setLoading(true)
+      getDocs(query(collection(db, "Items"), where("category", "==", categoryId))).then((querySnapshot) => {
+        console.log(querySnapshot)
+        const products = querySnapshot.docs.map(doc => {
+          return { id: doc.id, ...doc.data() }
+        })
+        setProducts(products)
+      }).catch((error) => {
+        console.log("Error searching items", error)
+      }).finally(() => {
+        setLoading(false)
+      })
+    }
 
 
-//import { useParams} from "react-router-dom";
+    return (() => {
+      setProducts([])
+    })
+  }, [categoryId])
 
+  if (loading) {
+    return <div className="spinner-border text-warning"></div>
 
-
-const ItemListContainer =()=> {
-     const {categoryId} = useParams()
-     const [products, setProducts] = useState ([]);
-
-  useEffect(()=>{
-    getProducts(categoryId).then (item => {
-         setProducts(item) // un solo item por categoria
-       }).catch(err =>{
-         console.log(err)
-       })
-   
-       return (() => {
-         setProducts([])
-       })
-     }, [categoryId])
-   
-     
-  
-  return (
-      <div className="ItemListContainer">
-        <ItemList products= {products}/>
-
-      </div>
-    )
   }
 
-  export default ItemListContainer;
+  return (
+    <div className="ItemListContainer">
+      <ItemList products={products} />
+
+    </div>
+  )
+}
+
+export default ItemListContainer;

@@ -11,7 +11,7 @@ const Item= ({product}) => {
         <p><img src={product.img} alt={product.name} className="itemImg"/></p>
         
         <p className="datos">
-          Categoria: {product.category}
+          Categoría: {product.category}
         </p>
          
         <p className="datos">${product.price}</p>

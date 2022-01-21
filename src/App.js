@@ -6,64 +6,64 @@ import ItemDetailContainer from "./components/ItemDetailContainer";
 import ItemCount from "./components/ItemCount";
 import Cart from "./components/Cart";
 import Footer from "./components/footer/Footer";
-//import React, {useState } from "react";
 import "./components/NavBar/NavBar.css";
-import {BrowserRouter, Switch, Route} from"react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import CartContextProvider from './components/CartContext/CartContext';
+import Dashboard from './components/dashboard';
+
 
 const App = () => {
- 
+
   return (
     <CartContextProvider>
-    <div className="App"> 
-     
-    <BrowserRouter> 
-      <header>
-        <NavBar/>
-      </header>
-      <body>
-        <div>
-        <img src={portada} className="App-portada" alt="portada" />
-        </div>
+      <div className="App">
 
-        <div>
-          <h1> CartContext</h1>
-          <Switch>
-            <Route exact path="/">
-               <ItemListContainer/>
-            </Route>
+        <Router>
+          <div className="header">
+            <NavBar />
+          </div>
+          <div className="body">
+            <div>
+              <img src={portada} className="App-portada" alt="portada" />
+            </div>
 
-            
-           <Route exact path="/category/:categoryId">
-               <ItemListContainer/>
-            </Route>
+            <div>
 
-           <Route exact path="/item/:paramId">
-             <ItemDetailContainer/>
-           </Route>
-           
-            <Route exact path='/cart'>
-		      		<Cart />
-		      	</Route>
+              <Routes>
 
-            <Route exact path='/count'>
-		      		<ItemCount />
-		      	</Route>
+                <Route exact path="/" element={<ItemListContainer />} />
 
-          </Switch>
-        </div> 
-      </body>
+                <Route path="/category/:categoryId"
+                  element={<ItemListContainer />} />
 
-      <Footer />
-     
-    </BrowserRouter> 
-  
-    </div>
+
+                <Route path="/item/:paramId"
+                  element={<ItemDetailContainer />} />
+
+
+                <Route path='/cart'
+                  element={<Cart />} />
+
+
+                <Route path='/count'
+                  element={<ItemCount />} />
+
+
+                <Route path="/dashboard"
+                  element={<Dashboard />} />
+
+              </Routes>
+
+            </div>
+          </div>
+
+          <Footer />
+
+        </Router>
+
+      </div>
     </CartContextProvider>
   );
 }
 
 export default App;
-
-
-
